@@ -1,5 +1,114 @@
+#AppStore
+host, p14-buy.itunes.apple.com, proxy
+Host, iosapps.itunes.apple.com=iosapps.itunes.apple.com, proxy
+#ChatGDP
+DOMAIN-SUFFIX,openai.com, 美国节点
+DOMAIN-SUFFIX,chat.openai.com, 美国节点
+DOMAIN-SUFFIX,auth0.openai.com, 美国节点
+DOMAIN-SUFFIX,cdn.openai.com, 美国节点
+DOMAIN-SUFFIX,oaistatic.co, 美国节点
+DOMAIN-SUFFIX,platform.openai.com, 美国节点
+#Google
+DOMAIN-SUFFIX,gstatic.com, 美国节点
+DOMAIN-SUFFIX,googleapis.com, 美国节点
+DOMAIN-SUFFIX,google.com, 美国节点
+#Gmail
+DOMAIN, imap.gmail.com, direct
+DOMAIN, smtp.gmail.com, direct
+DOMAIN, pop.gmail.com, direct
+DOMAIN-SUFFIX, gmail.com, direct
+DOMAIN-SUFFIX, googlemail.com, direct
+DOMAIN-SUFFIX, google.com, direct
+#iCloud邮箱
+DOMAIN,imap.mail.me.com, direct
+DOMAIN,smtp.mail.me.com, direct
+DOMAIN-SUFFIX,icloud.com, direct
+DOMAIN-SUFFIX,me.com, direct
+#QQ邮箱
+DOMAIN, imap.qq.com, direct
+DOMAIN, smtp.qq.com, direct
+DOMAIN, pop.qq.com, direct
+DOMAIN-SUFFIX, qq.com, direct
+#Twitter
+DOMAIN-SUFFIX,twitter.biz,美国节点
+DOMAIN-SUFFIX,t.co,美国节点
+DOMAIN-SUFFIX,twimg.co,美国节点
+DOMAIN-SUFFIX,vine.co,美国节点
+DOMAIN-SUFFIX,ads-twitter.com,美国节点
+DOMAIN-SUFFIX,cms-twdigitalassets.com,美国节点
+DOMAIN-SUFFIX,tellapart.com,美国节点
+DOMAIN-SUFFIX,tweetdeck.com,美国节点
+DOMAIN-SUFFIX,twimg.com,美国节点
+DOMAIN-SUFFIX,twitpic.com,美国节点
+DOMAIN-SUFFIX,twitter.com,美国节点
+DOMAIN-SUFFIX,twittercommunity.com,美国节点
+DOMAIN-SUFFIX,twitterflightschool.com,美国节点
+DOMAIN-SUFFIX,twitterinc.com,美国节点
+DOMAIN-SUFFIX,twitteroauth.com,美国节点
+DOMAIN-SUFFIX,twttr.com,美国节点
+DOMAIN-SUFFIX,twvid.com,美国节点
+DOMAIN-SUFFIX,x.com,美国节点
+DOMAIN-SUFFIX,twitter.jp,美国节点
+DOMAIN-SUFFIX,twtrdns.net,美国节点
+DOMAIN-SUFFIX,twttr.net,美国节点
+DOMAIN-SUFFIX,twimg.org,美国节点
+DOMAIN-SUFFIX,periscope.tv,美国节点
+DOMAIN-SUFFIX,pscp.tv,美国节点
+DOMAIN-SUFFIX,twitterstat.us,美国节点
+DOMAIN-KEYWORD,twitter,美国节点
+IP-CIDR,202.160.128.0/22,美国节点
+IP-CIDR,199.59.148.0/22,美国节点
+IP-CIDR,192.133.76.0/22,美国节点
+IP-CIDR,199.96.56.0/21,美国节点
+IP-CIDR,209.237.192.0/19, 美国节点
+IP-CIDR,69.195.160.0/19, 美国节点
+#WeChat
+HOST, apd-pcdnwxlogin.teg.tencent-cloud.net, direct
+HOST, btrace.qq.com, direct
+HOST, dl.wechat.com, direct
+HOST, dldir1.qq.com, direct
+HOST, sgfindershort.wechat.com, direct
+HOST, sgilinkshort.wechat.com, direct
+HOST, sglong.wechat.com, direct
+HOST, sgminorshort.wechat.com, direct
+HOST, sgquic.wechat.com, direct
+HOST, sgshort.wechat.com, direct
+HOST, slife.xy-asia.com, direct
+HOST, soup.v.qq.com, direct
+HOST, tencentmap.wechat.com, direct
+HOST, vweixinf.tc.qq.com, direct
+HOST, weixin110.qq.com, direct
+HOST, wup.imtt.qq.com, direct
+HOST, wx.tenpay.com, direct
+HOST, wxapp.tc.qq.com, direct
+HOST, iot-tencent.com, direct
+HOST, lbs.gtimg.com, direct
+HOST, map.qq.com, direct
+HOST, qlogo.cn, direct
+HOST, qpic.cn, direct
+HOST, servicewechat.com, direct
+HOST, tenpay.com, direct
+HOST, up-hl.3g.qq.com, direct
+HOST, vweixinthumb.tc.qq.com, direct
+HOST, wechat.com, direct
+HOST, wechatlegal.net, direct
+HOST, wechatos.net, direct
+HOST, wechatpay.com, direct
+HOST, weixin.com, direct
+HOST, weixin.qq.com, direct
+HOST, weixinbridge.com, direct
+HOST, weixinsxy.com, direct
+HOST, wx.gtimg.com, direct
+HOST, wx.qq.com, direct
+HOST, wxapp.tc.qq.com, direct
+HOST, wxs.qq.com, direct
+HOST, yun-hl.3g.qq.com, direct
+USER-AGENT, MicroMessenger*, direct
+USER-AGENT, WeChat*, direct
+IP-ASN, 132203, direct
 # 油管分流
-DOMAIN-SUFFIX, gstatic.com,日本节点
+DOMAIN-SUFFIX, gstatic.com, 美国节点
+
 #百度网盘去广告
 ^https:\/\/pan\.baidu\.com\/api\/getconfig url reject-dict
 ^https:\/\/pan\.baidu\.com\/api\/getsyscfg url reject-dict
@@ -9,8 +118,6 @@ DOMAIN-SUFFIX, gstatic.com,日本节点
 ^https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user\?method=gamecenter url reject-dict
 ^https:\/\/pan\.baidu\.com\/act\/v2\/welfare\/list url reject-dict
 ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adv url reject-dict
-#!name = filter local
-#!desc = 解决苹果商店下载速度慢的问题
-host, p14-buy.itunes.apple.com,美国节点
-Host, iosapps.itunes.apple.com=iosapps.itunes.apple.com, proxy
+
+
 host, lookup.api.bsb.baidu.com, reject
