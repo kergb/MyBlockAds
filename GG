@@ -1,3 +1,7 @@
+#!name = MyBlockAds
+#!desc = 自用去广告插件,
+
+#Rule
 #AppStore
 host, p14-buy.itunes.apple.com, proxy
 Host, iosapps.itunes.apple.com=iosapps.itunes.apple.com, proxy
@@ -109,6 +113,7 @@ IP-ASN, 132203, direct
 # 油管分流
 DOMAIN-SUFFIX, gstatic.com, 美国节点
 
+#!name = Script
 #百度网盘去广告
 ^https:\/\/pan\.baidu\.com\/api\/getconfig url reject-dict
 ^https:\/\/pan\.baidu\.com\/api\/getsyscfg url reject-dict
@@ -120,4 +125,4 @@ DOMAIN-SUFFIX, gstatic.com, 美国节点
 ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adv url reject-dict
 
 
-host, lookup.api.bsb.baidu.com, reject
+
