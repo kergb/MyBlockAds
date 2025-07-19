@@ -23,6 +23,8 @@ DOMAIN, pop.gmail.com, direct
 DOMAIN-SUFFIX, gmail.com, direct
 DOMAIN-SUFFIX, googlemail.com, direct
 DOMAIN-SUFFIX, google.com, direct
+# GeoIP China
+GEOIP, CN, direct
 #iCloud邮箱
 DOMAIN,imap.mail.me.com, direct
 DOMAIN,smtp.mail.me.com, direct
