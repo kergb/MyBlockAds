@@ -83,7 +83,6 @@ domain-keyword, adv.ccb.com, reject
 # 京东
 domain, dns.jd.com, reject
 ip-cidr, 101.124.19.122/32, reject
-ip-cidr6, 2402:db40:5100:1011::5/128, reject
 #iCloud邮箱
 DOMAIN, imap.mail.me.com, direct
 DOMAIN, smtp.mail.me.com, direct
