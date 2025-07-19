@@ -174,10 +174,10 @@ DOMAIN-SUFFIX, gstatic.com, 美国节点
 #Script
 #爱思助手//list-app-m.i4.cn,app-m.i4.cn
 ^https?:\/\/list-app-m\.i4\.cn\/getopfstadinfo\.xhtml url reject
-#^https?:\/\/list-app-m\.i4\.cn\/(adclickcb|getHotSearchList|getopfstadinfo)\.xhtml url reject
 #仅保留搜索
-^https?:\/\/(search|list)-app-m\.i4\.cn\/(getHotSearchList|getAppList)\.xhtml url script-response-body https://raw.githubusercontent.com/Keygb/QuantumX/refs/heads/main/aisizhushou.js
-# > 爱奇艺
+^https?:\/\/(search|list)-app-m\.i4\.cn\/(getHotSearchList|getAppList)\.xhtml url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/xianyu.js
+
+#爱奇艺
 # hostname = -i.vip.iqiyi.com, *.iqiyi.com
 # 播放页开通会员提示
 ^https?:\/\/act\.vip\.iqiyi\.com\/interact\/api\/v2\/show\? url reject-dict
@@ -210,6 +210,7 @@ DOMAIN-SUFFIX, gstatic.com, 美国节点
 ^https?:\/\/search\.video\.iqiyi\.com\/q\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cnftp.js
 # 开屏广告,播放广告
 ^https?:\/\/(kjp|t7z)\.cupid\.iqiyi\.com\/mixer\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cnftp.js
+
 #百度网盘去广告//pan.baidu.com
 ^https:\/\/pan\.baidu\.com\/api\/getconfig url reject-dict
 ^https:\/\/pan\.baidu\.com\/api\/getsyscfg url reject-dict
@@ -219,6 +220,7 @@ DOMAIN-SUFFIX, gstatic.com, 美国节点
 ^https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user\?method=gamecenter url reject-dict
 ^https:\/\/pan\.baidu\.com\/act\/v2\/welfare\/list url reject-dict
 ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adv url reject-dict
+
 #百度贴吧净化//tiebac.baidu.com, tieba.baidu.com
 ^https:\/\/tiebac\.baidu\.com\/c\/u\/chat\/getChatSubscriptionList url reject-dict
 ^https:\/\/tiebac\.baidu\.com\/c\/f\/search\/discover url reject-dict
@@ -229,6 +231,7 @@ DOMAIN-SUFFIX, gstatic.com, 美国节点
 ^https:\/\/tieba\.baidu\.com\/c\/f\/frs\/frsBottom url script-response-body https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/TB.js
 ^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/(c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)$|tiebaads\/commonbatch|c\/s\/sync$) url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js
 ^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)\?cmd url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js
+
 #百度//www.baidu.com, fcvbjbcebos.baidu.com, cover.baidu.com, baichuan.baidu.com, api*.tuisong.baidu.com, mobads.baidu.com, issuecdn.baidupcs.com, sa*.tuisong.baidu.com, m.baidu.com, sofire.baidu.com
 ^https?:\/\/fcvbjbcebos\.baidu\.com\/.+.mp4 url reject
 ^https?:\/\/fcvbjbcebos\.baidu\.com\/.+?\.mp4 url reject-img
@@ -255,40 +258,41 @@ DOMAIN-SUFFIX, gstatic.com, 美国节点
 ^https?:\/\/az2-live\.ksapisrv\.com\/rest\/n\/live\/feed\/square\/refresh\? url jsonjq-response-body 'delpaths([["data","banners"]])'
 ^https?:\/\/az4-api(-idc)?\.ksapisrv\.com\/rest\/n\/feed\/selectionFast\? url jsonjq-response-body 'if (.feeds | type) == "array" then .feeds |= map(select(.ad | not)) else . end'
 ^https?:\/\/az2-api-js\.gifshow\.com\/rest\/n\/user\/profile\/v2\? url jsonjq-response-body 'delpaths([["postRecommends"]])'
-# 任务中心 - 挂件
+#任务中心 - 挂件
 ^https?:\/\/az2-api\.ksapisrv\.com\/rest\/n\/taskCenter\/task\/report\? url reject-dict
-# 广告下发
+#广告下发
 ^https?:\/\/az2-api\.ksapisrv\.com\/rest\/n\/ad\/ url reject-dict
 
 #酷狗音乐//gateway.kugou.com, fx.service.kugou.com, hwstore.kugou.com, ep.kugou.com, gatewayretry.kugou.com, gzacshow.kugou.com, m1fxgroup.kugou.com
 ^https?:\/\/gateway(retry)?\.kugou\.com\/ocean\/v\d\/tab\/list_v\d url jsonjq-response-body 'walk(if type == "object" and has("name") and (.name | IN(["AI帮唱","长相思2","K歌","小说","游戏"])) then empty else . end)'
-# 广告配置
+#广告配置
 ^https?:\/\/fx\.service\.kugou\.com\/mfx-kugoulive\/ad\/ url reject-dict
 ^https?:\/\/gateway(retry)?\.kugou\.com\/adp\/ad\/ url reject-dict
 ^https?:\/\/gateway(retry)?\.kugou\.com\/ads\.gateway\/ url reject-dict
-# 我的 - 关注 - 发现更多动态
+#我的 - 关注 - 发现更多动态
 ^https?:\/\/gateway(retry)?\.kugou\.com\/v\d\/feeds\/follow_feed_fallback url reject-dict
-# 任务广告
+#任务广告
 ^https?:\/\/gateway(retry)?\.kugou\.com\/mstc\/musicsymbol\/v\d\/system\/profile url reject-dict
-# 搜索填充词
+#搜索填充词
 ^https?:\/\/gateway(retry)?\.kugou\.com\/searchnofocus\/v\d\/search_no_focus_word url reject-dict
-# 播放页顶部气泡
+#播放页顶部气泡
 ^https?:\/\/gateway(retry)?\.kugou\.com\/adp\/bubble\/v\d\/song_play url reject-dict
-# 歌曲评论 - 与歌手有关的回答
+#歌曲评论 - 与歌手有关的回答
 ^https?:\/\/gateway(retry)?\.kugou\.com\/singerdiscuss\/v\d\/entrance\/comment url reject-dict
 ^https?:\/\/gateway(retry)?\.kugou\.com\/r\/v\d\/general\/putin\/midad url reject-dict
-# 各类横幅推广
+#各类横幅推广
 ^https?:\/\/gateway(retry)?\.kugou\.com\/ocean\/v\d\/sound\/banner url reject-dict
-# 热搜主播
+#热搜主播
 ^https?:\/\/gzacshow\.kugou\.com\/mfanxing-home\/cdn\/room\/index\/list_v2 url reject-dict
-# 直播推荐 - 主播修仙中
+#直播推荐 - 主播修仙中
 ^https?:\/\/gzacshow\.kugou\.com\/mfx-rt-show\/cdn\/mo\/show\/headline url reject-dict
-# 歌房弹窗
+#歌房弹窗
 ^https?:\/\/m1fxgroup\.kugou\.com\/fxsing\/yqc\/alongInfo\/getUserAlongInfo url reject-dict
-# 酷狗商城 - 文字广告
+#酷狗商城 - 文字广告
 ^https?:\/\/hwstore\.kugou\.com\/v\d\/get_store_data url reject-dict
-# 唱片店 - 文字广告
+#唱片店 - 文字广告
 ^https?:\/\/ep\.kugou\.com\/v\d\/album_shop\/get_entrance_info url reject-dict
+
 #美团//apimobile.meituan.com, img.meituan.net, p*.meituan.net, s3plus.meituan.net, flowplus.meituan.net, portal-portm.meituan.com, sqt.meituan.com
 ^https?:\/\/apimobile\.meituan\.com\/appupdate url reject
 ^https?:\/\/img\.meituan\.net\/(adunion|display|midas)\/.+\.(gif|jpg)\.webp$ url reject-img
@@ -343,7 +347,7 @@ DOMAIN-SUFFIX, gstatic.com, 美国节点
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.o2o\.ad\.gateway\.get url reject-dict
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.taobao\.idle\.home\.welcome url reject-dict
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources url reject-dict
-# 开屏广告
+#开屏广告
 ^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/\d*\/?[\w!]+-\d-(octopus|tps-1125-1602|tps-1080-1920|tps-1125-1950)\.(jp|pn)g_(1\d{3}|9\d{2})x(1\d{3}|9\d{2})q[59]0 url reject-dict
 ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(volvo\.secondfloor\.getconfig|wireless\.home\.newface\.awesome\.get) url reject-dict
 
@@ -352,65 +356,64 @@ DOMAIN-SUFFIX, gstatic.com, 美国节点
 
 
 #WiFi万能钥匙//cds.wifi188.com
-# 首页弹窗广告
+#首页弹窗广告
 ^https?:\/\/cds\.wifi188\.com\/feeds\.sec url reject-dict
+
 #迅雷//api-shoulei-ssl.xunlei.com, conf-m-ssl.xunlei.com
 ^https:\/\/api-shoulei-ssl\.xunlei\.com\/flowhub\/v1\/slots:batchGet$ url reject-dict
 #精简我的页面
 ^https:\/\/conf-m-ssl\.xunlei\.com\/external\/ url script-response-body https://raw.githubusercontent.com/Keygb/QuantumX/refs/heads/main/Xunlei.js
-#！闲鱼hostname = acs.m.goofish.com, g-acs.m.goofish.com
-# 拦截广告下发
-^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch %E9%97%B2%E9%B1%BC* url-and-header reject
-# 首页顶部标签
-#^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.home\.whale\.modulet\/ url script-response-body https://raw.githubusercontent.com/Keygb/QuantumX/refs/heads/main/Xianyu.js
-# 搜索栏填充词
+
+#闲鱼hostname = acs.m.goofish.com, g-acs.m.goofish.com
+#首页顶部标签
+^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.home\.whale\.modulet\/ url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/xianyu.js
+#搜索栏填充词
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.shade\/ url jsonjq-response-body del(.data)
-# 首页闲鱼币入口、底部发布球
+#首页闲鱼币入口、底部发布球
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.user\.strategy\.list\/ url jsonjq-response-body del(.data)
-# 商品信息流广告
-^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh\/ url script-response-body https://raw.githubusercontent.com/Keygb/QuantumX/refs/heads/main/Xianyu.js
-# 定位地区页面的信息流广告
-^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\/ url script-response-body https://raw.githubusercontent.com/Keygb/QuantumX/refs/heads/main/Xianyu.js
-# 个人主页
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.idle\.user\.page\.my\.adapter\/ url script-response-body https://raw.githubusercontent.com/Keygb/QuantumX/refs/heads/main/Xianyu.js
-# 消息页感兴趣推荐
+#商品信息流广告
+^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh\/ url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/xianyu.js
+#定位地区页面的信息流广告
+^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\/ url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/xianyu.js
+#个人主页
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.idle\.user\.page\.my\.adapter\/ url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/xianyu.js
+#消息页感兴趣推荐
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.playboy\.recommend\/1\.0 url reject
-# 主页关注的人感兴趣推荐
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.playboy\.recommend\/2\.0 url script-response-body https://raw.githubusercontent.com/Keygb/QuantumX/refs/heads/main/Xianyu.js
-# 首页顶部频道菜单
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.circle\.list\/1\.0 url script-response-body https://raw.githubusercontent.com/Keygb/QuantumX/refs/heads/main/Xianyu.js
+#主页关注的人感兴趣推荐
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.playboy\.recommend\/2\.0 url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/xianyu.js
+#首页顶部频道菜单
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.circle\.list\/1\.0 url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/xianyu.js
 #^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.circle\.list\/1\.0 url reject
-# 商品详情页底部推荐
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.recommend\.list\/ url script-response-body https://raw.githubusercontent.com/Keygb/QuantumX/refs/heads/main/Xianyu.js
-# 商品详情页周边推荐
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.nearby\.itemdetail\.enter\/1\.0 url script-response-body https://raw.githubusercontent.com/Keygb/QuantumX/refs/heads/main/Xianyu.js
-# 0关注情况下首页顶部关注频道的用户推荐
-#^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.fun\.follow\.feed\.list\/ url script-response-body https://raw.githubusercontent.com/Keygb/QuantumX/refs/heads/main/Xianyu.js
-#^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.fun\.follow\.recommend\.feed\.list\/1\.0 url script-response-body https://raw.githubusercontent.com/Keygb/QuantumX/refs/heads/main/Xianyu.js
-# 搜索结果信息流广告
-^https:\/\/g-acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\/ url script-response-body https://raw.githubusercontent.com/Keygb/QuantumX/refs/heads/main/Xianyu.js
-# 关注的人页面圈子横幅
+#商品详情页底部推荐
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.recommend\.list\/ url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/xianyu.js
+#商品详情页周边推荐
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.nearby\.itemdetail\.enter\/1\.0 url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/xianyu.js
+#无关注情况下首页顶部关注频道的用户推荐
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.fun\.follow\.feed\.list\/ url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/xianyu.js
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.fun\.follow\.recommend\.feed\.list\/1\.0 url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/xianyu.js
+#搜索结果信息流广告
+^https:\/\/g-acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\/ url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/xianyu.js
+#关注的人页面圈子横幅
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.group\.myself\.banner\/ url jsonjq-response-body .data.bannerList = []
 # 首页关注频道常访问的圈子
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.fun\.follow\.often\.visit url jsonjq-response-body .data.sections = []
-# 主页关注页面圈子新横幅
+#主页关注页面圈子新横幅
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.circle\.myself\.banner\/1\.0 url jsonjq-response-body .data.bannerList = []
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.circle\.visited\/1\.0 url script-response-body https://raw.githubusercontent.com/Keygb/QuantumX/refs/heads/main/Xianyu.js
-# 闲鱼我的页面底部商品推荐
+#闲鱼我的页面底部商品推荐
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.buy\.feeds url reject-dict
-# 开屏广告
+#开屏广告
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlecommerce\.splash\.ads url reject-dict
-# 同城页横幅广告
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.flow\.plat\.section url script-response-body https://raw.githubusercontent.com/Keygb/QuantumX/refs/heads/main/Xianyu.js
-# 搜索页多余推荐列表
+#同城页横幅广告
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.flow\.plat\.section url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/xianyu.js
+#搜索页多余推荐列表
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.item\.search\.activate\/2\.0 url reject-dict
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.discover\/1\.0 url reject-dict
-# 这些宝贝超好卖
+#这些宝贝超好卖
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.resell\.recommendorhotcate\/1\.0 url reject-dict
-# 用闲鱼币买更便宜
+#用闲鱼币买更便宜
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.idle\.coin\.nextfresh\/1\.0 url reject-dict
-# 消息页闲鱼精选
-#^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemessage\.session\.sync\/3\.0 url script-response-body https://raw.githubusercontent.com/Keygb/QuantumX/refs/heads/main/Xianyu.js
+#消息页闲鱼精选
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemessage\.session\.sync\/3\.0 url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/xianyu.js
 
 #一汽大众//oneapp-api.faw-vw.com
 ^https?:\/\/oneapp-api\.faw-vw\.com\/search\/firstPage\/getPromptList\/v1\?.* url jsonjq-response-body '. = { returnStatus: "SUCCEED", hasMore: false, data: [] }'
@@ -455,14 +458,14 @@ DOMAIN-SUFFIX, gstatic.com, 美国节点
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getmymoretools$ url jsonjq-response-body 'walk(if type == "object" and .name == "免流量特权" then empty else . end) | del(.respData.groupList[] | select(.groupName == "活动参与" or .groupName == "金融工具"))'
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getmyprofilev3$ url jsonjq-response-body 'delpaths([["respData","bmNewInfo"]])'
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getmyprofilev3$ url jsonjq-response-body 'del(.respData.itemGroupList[].itemList[] | select(.name == "天天赚钱" or .name == "借钱")) | del(.respData.itemGroupList[] | select(.groupType == 15))'
-# 开屏广告
+#开屏广告
 ^https?:\/\/app\.zhuanzhuan\.com\/zzx\/transfer\/getConfigInfo url reject-dict
 ^https?:\/\/app\.zhuanzhuan\.com\/zzopen\/popwindow\/getallpopwin\? url reject-dict
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzlogic\/getOpenScreen url reject-dict
-# 转转右下角悬浮广告
+#转转右下角悬浮广告
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/userred\?scene=homePage url reject-dict
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/getfeedflowinfo\? url response-body userRed response-body fmz200
-# “我的”页面去除冗余的模块
+#我的页面去除冗余的模块
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getmyprofilev3 url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhuanzhuan/zhuanzhuan.js
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/getchoicegoodsinfos url response-body infoData response-body fmz200
 
