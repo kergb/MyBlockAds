@@ -359,9 +359,9 @@ DOMAIN-SUFFIX, gstatic.com, 美国节点
 ^https?:\/\/cds\.wifi188\.com\/feeds\.sec url reject-dict
 
 #迅雷//api-shoulei-ssl.xunlei.com, conf-m-ssl.xunlei.com
-^https:\/\/api-shoulei-ssl\.xunlei\.com\/flowhub\/v1\/slots:batchGet$ url reject-dict
+^https:\/\/api-shoulei-ssl\.xunlei\.com\/flowhub\/v1\/slots:batchGet$ url jsonjq-response-body '{ "data": [] }'
 #精简我的页面
-^https:\/\/conf-m-ssl\.xunlei\.com\/external\/ url script-response-body https://raw.githubusercontent.com/Keygb/QuantumX/refs/heads/main/Xunlei.js
+^https:\/\/conf-m-ssl\.xunlei\.com\/external\/ url jsonjq-response-body '.values.me_config.common_service_list |= del(.[0,1,2,3,4,5]) | .values.me_config.entrance_list |= del(.[7]) | del(.values.me_config.banner_service_list)'
 
 #闲鱼hostname = acs.m.goofish.com, g-acs.m.goofish.com
 #首页顶部标签
