@@ -219,6 +219,9 @@ DOMAIN-SUFFIX, gstatic.com, 美国节点
 ^https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user\?method=gamecenter url reject-dict
 ^https:\/\/pan\.baidu\.com\/act\/v2\/welfare\/list url reject-dict
 ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adv url reject-dict
+#伪装会员,视频倍速
+^https?:\/\/pan\.baidu\.com\/api\/getsyscfg\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/baiduPan.js
+^https?:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/baiduPan.js
 
 #百度贴吧净化//tiebac.baidu.com, tieba.baidu.com
 ^https:\/\/tiebac\.baidu\.com\/c\/u\/chat\/getChatSubscriptionList url reject-dict
