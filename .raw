@@ -1,5 +1,6 @@
 #!name = MyBlockAds
 #!desc = 自用去广告插件
+
 #爱奇艺
 DOMAIN,access.if.iqiyi.com,REJECT
 DOMAIN,api.iqiyi.com,REJECT
@@ -7,6 +8,7 @@ DOMAIN-SUFFIX,cupid.iqiyi.com,DIRECT
 IP-CIDR,103.44.59.54/32,REJECT,no-resolve
 IP-CIDR,111.63.147.158/32,REJECT,no-resolve
 IP-CIDR,116.211.198.237/32,REJECT,no-resolve
+
 #BaiDu
 DOMAIN-SUFFIX, pos.baidu.com, reject
 DOMAIN, mobads.baidu.com, reject
@@ -15,6 +17,7 @@ IP-CIDR, 180.76.76.200/32, reject
 #BaiDuTieBa
 host,afd.baidu.com, reject
 host,mobads.baidu.com, reject
+
 #ChatGDP
 DOMAIN-SUFFIX,openai.com, 美国节点
 DOMAIN-SUFFIX,chat.openai.com, 美国节点
@@ -22,10 +25,12 @@ DOMAIN-SUFFIX,auth0.openai.com, 美国节点
 DOMAIN-SUFFIX,cdn.openai.com, 美国节点
 DOMAIN-SUFFIX,oaistatic.co, 美国节点
 DOMAIN-SUFFIX,platform.openai.com, 美国节点
+
 #Google
 DOMAIN-SUFFIX,gstatic.com, 美国节点
 DOMAIN-SUFFIX,googleapis.com, 美国节点
 DOMAIN-SUFFIX,google.com, 美国节点
+
 #Gmail
 DOMAIN, imap.gmail.com, direct
 DOMAIN, smtp.gmail.com, direct
@@ -33,16 +38,19 @@ DOMAIN, pop.gmail.com, direct
 DOMAIN-SUFFIX, gmail.com, direct
 DOMAIN-SUFFIX, googlemail.com, direct
 DOMAIN-SUFFIX, google.com, direct
+
 #建设银行
 domain-keyword, adv.ccb.com, reject
 # 京东
 domain, dns.jd.com, reject
 ip-cidr, 101.124.19.122/32, reject
+
 #iCloud邮箱
 DOMAIN, imap.mail.me.com, direct
 DOMAIN, smtp.mail.me.com, direct
 DOMAIN-SUFFIX, icloud.com, direct
 DOMAIN-SUFFIX, me.com, direct
+
 #酷狗音乐
 DOMAIN, ads.service.kugou.com, REJECT
 DOMAIN, adstats.tencentmusic.com, REJECT
@@ -52,13 +60,14 @@ DOMAIN, adserviceretry.kglink.cn, REJECT
 DOMAIN, ad.tencentmusic.com, REJECT
 DOMAIN, adservice.kugou.com, REJECT
 DOMAIN, splashimgretrybssdl.cloud.kugou.com, REJECT
+
 #快手
 DOMAIN-SUFFIX,e.kuaishou.com, reject
 DOMAIN,js-ad.a.yximgs.com, reject
-# 美团
+
+#美团
 DOMAIN, maplocatesdksnapshot.d.meituan.net, reject
-DOMAIN, metrics-picture.d.meituan.net,
-reject
+DOMAIN, metrics-picture.d.meituan.net, reject
 IP-CIDR, 103.37.155.60/32, reject
 host, flowplus.meituan.net, reject
 host-suffix, analytics.meituan.net, reject
@@ -69,9 +78,10 @@ host-suffix, report.meituan.com, reject
 host-suffix, wmlog.meituan.com, reject
 host-suffix, ad.e.waimai.sankuai.com, reject
 host-suffix, mads.meituan.com, reject
-host-suffix,dreport.meituan.net, reject
+host-suffix, dreport.meituan.net, reject
 host-suffix, d.meituan.net, reject
-#MissAV.com, reject 
+
+#MissAV.com 
 DOMAIN-SUFFIX,trackwilltrk.com, reject
 DOMAIN-SUFFIX,rmhfrtnd.com, reject
 DOMAIN-SUFFIX,video.ktkjmp.com, reject
@@ -94,6 +104,7 @@ DOMAIN-SUFFIX,mc7clurd09pla4nrtat7ion.com, reject
 DOMAIN-SUFFIX,e67repidwnfu7gcha.com, reject
 DOMAIN-SUFFIX,wuzbhjpvsf.com, reject
 DOMAIN-SUFFIX,a.realsrv.com, reject
+
 # NB助手屏蔽更新
 DOMAIN,media-sxty-fy-home01.sx3oss.ctyunxs.cn, reject
 #QQ邮箱
@@ -101,8 +112,7 @@ DOMAIN, imap.qq.com, direct
 DOMAIN, smtp.qq.com, direct
 DOMAIN, pop.qq.com, direct
 DOMAIN-SUFFIX, qq.com, direct
-# 数字联盟
-DOMAIN-SUFFIX, shuzilm.cn, reject
+
 #Twitter
 DOMAIN-SUFFIX,twitter.biz,美国节点
 DOMAIN-SUFFIX,t.co,美国节点
@@ -136,7 +146,8 @@ IP-CIDR,192.133.76.0/22,美国节点
 IP-CIDR,199.96.56.0/21,美国节点
 IP-CIDR,209.237.192.0/19, 美国节点
 IP-CIDR,69.195.160.0/19, 美国节点
-# 腾讯
+
+#腾讯
 DOMAIN-KEYWORD, trace.qq.com, reject
 DOMAIN-KEYWORD, trace.video.qq.com, reject
 DOMAIN-SUFFIX, gdt.qq.com, reject
@@ -153,14 +164,17 @@ DOMAIN, tmeadbak.y.qq.com, reject
 DOMAIN, tmeadcomm.y.qq.com, reject
 DOMAIN, tpns.qq.com, reject
 IP-CIDR, 47.110.187.87/32, reject
+
 #WeChat
 DOMAIN-SUFFIX, wxs.qq.com, reject
 DOMAIN, badjs.weixinbridge.com, reject
 DOMAIN, dns.weixin.qq.com.cn, reject
 #闲鱼
 user-agent, %E9%97%B2%E9%B1%BC*, reject
+
 # 油管分流
-DOMAIN-SUFFIX, googlevideo.com, FALLBACK   DOMAIN-SUFFIX, ytimg.com, FALLBACK
+DOMAIN-SUFFIX, googlevideo.com, FALLBACK   
+DOMAIN-SUFFIX, ytimg.com, FALLBACK
 DOMAIN-SUFFIX, gstatic.com,FALLBACK
 
 #Script
@@ -211,6 +225,7 @@ DOMAIN-SUFFIX, gstatic.com,FALLBACK
 ^https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user\?method=gamecenter url reject-dict
 ^https:\/\/pan\.baidu\.com\/act\/v2\/welfare\/list url reject-dict
 ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adv url reject-dict
+
 #解锁倍速/画质
 ^https?:\/\/pan\.baidu\.com\/api\/getsyscfg\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/baiduPan.js
 ^https?:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/baiduPan.js
@@ -220,15 +235,15 @@ DOMAIN-SUFFIX, gstatic.com,FALLBACK
 ^https?:\/\/tieba(c)?\.baidu\.com\/c\/f\/search\/discover url jsonjq-response-body '.data.discover_list = []'
 #侧边抽屉栏@ddgksf2013
 ^https?:\/\/tieba(c)?\.baidu\.com\/c\/f\/sidebar\/home url jsonjq-response-body 'del(.game_center, .tools, .vip_banner, .task_list)'
-# 我的页面@ddgksf2013
+#我的页面@ddgksf2013
 ^https?:\/\/tieba(c)?\.baidu\.com\/c\/u\/user\/profile url jsonjq-response-body 'del(.duxiaoman, .namoaixud, .namoaixud_entry, .recom_naws_list, .duxiaoman_entry, .vip_banner) | .zone_info |= map(select(.type == "common_func" or .type == "auxiliary_func"))'
-# 进吧Form@ddgksf2013
+#进吧Form@ddgksf2013
 ^https?:\/\/tieba(c)?\.baidu\.com\/c\/f\/forum\/forumGuide url jsonjq-response-body '.hot_search = []'
 #搜索推荐@@ddgksf2013
 ^https?:\/\/tieba(c)?\.baidu\.com\/mo\/q\/search\/startPage url jsonjq-response-body 'del(.data)'
 #页面中部广告@ddgksf2013
 ^https?:\/\/tieba(c)?\.baidu\.com\/c\/f\/ad\/getFeedAd url reject-200
-# 贴吧proto处理@app2smile
+#贴吧proto处理@app2smile
 ^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)\?cmd url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js
 
 #大麦// acs.m.taobao.com
@@ -343,7 +358,7 @@ DOMAIN-SUFFIX, gstatic.com,FALLBACK
 ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.cloudvideo\.video\.query url jsonjq-response-body '{"data":{"duration":"0","resources":[],"caches":[],"respTimeInMs":"3818332800000"}}'
 #淘宝 - 开屏图片广告接口（splash.awesome.get）
 ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.wireless\.home\.splash\.awesome\.get url jsonjq-response-body '{"data":{"containers":{"splash_home_base":{"base":{"sections":[{"bizData":{"taobao-splash":{"data":[{"waitTime":"0","times":"0","hotStart":"false","haveVoice":"false","hideTBLogo":"false","enable4G":"false","coldStart":"false","startTime":"3818332800000","endTime":"3818419199000","gmtStart":"2090-12-31 00:00:00","gmtEnd":"2090-12-31 23:59:59","gmtStartMs":"3818332800000","gmtEndMs":"3818419199000","imgUrl":"","videoUrl":""}]}}}]}}}}}'
-#淘宝 • 开屏活动弹窗接口（poplayer）
+#淘宝 - 开屏活动弹窗接口（poplayer）
 ^https:\/\/poplayer\.template\.alibaba\.com\/\w+\.json url jsonjq-response-body '{"res":{"images":[],"videos":[]},"mainRes":{"images":[]},"enable":false}'
 
 #WiFi万能钥匙//cds.wifi188.com
