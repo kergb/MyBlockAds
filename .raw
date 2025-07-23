@@ -33,8 +33,6 @@ DOMAIN, pop.gmail.com, direct
 DOMAIN-SUFFIX, gmail.com, direct
 DOMAIN-SUFFIX, googlemail.com, direct
 DOMAIN-SUFFIX, google.com, direct
-#GeoIP China
-GEOIP, CN, direct
 #建设银行
 domain-keyword, adv.ccb.com, reject
 # 京东
@@ -57,10 +55,10 @@ DOMAIN, splashimgretrybssdl.cloud.kugou.com, REJECT
 #快手
 DOMAIN-SUFFIX,e.kuaishou.com, reject
 DOMAIN,js-ad.a.yximgs.com, reject
-
 # 美团
 DOMAIN, maplocatesdksnapshot.d.meituan.net, reject
-DOMAIN, metrics-picture.d.meituan.net, reject
+DOMAIN, metrics-picture.d.meituan.net,
+reject
 IP-CIDR, 103.37.155.60/32, reject
 host, flowplus.meituan.net, reject
 host-suffix, analytics.meituan.net, reject
@@ -98,9 +96,6 @@ DOMAIN-SUFFIX,wuzbhjpvsf.com, reject
 DOMAIN-SUFFIX,a.realsrv.com, reject
 # NB助手屏蔽更新
 DOMAIN,media-sxty-fy-home01.sx3oss.ctyunxs.cn, reject
-#Pornhub.com
-DOMAIN-SUFFIX,etahub.co, reject
-DOMAIN-SUFFIX,evtubescms.phncdn.com, reject
 #QQ邮箱
 DOMAIN, imap.qq.com, direct
 DOMAIN, smtp.qq.com, direct
@@ -108,10 +103,6 @@ DOMAIN, pop.qq.com, direct
 DOMAIN-SUFFIX, qq.com, direct
 # 数字联盟
 DOMAIN-SUFFIX, shuzilm.cn, reject
-#Speedtest
-DOMAIN-KEYWORD, -adsystem.com, reject
-DOMAIN, ads.pubmatic.com, reject
-DOMAIN, id.hadron.ad.gt, reject
 #Twitter
 DOMAIN-SUFFIX,twitter.biz,美国节点
 DOMAIN-SUFFIX,t.co,美国节点
@@ -169,7 +160,8 @@ DOMAIN, dns.weixin.qq.com.cn, reject
 #闲鱼
 user-agent, %E9%97%B2%E9%B1%BC*, reject
 # 油管分流
-DOMAIN-SUFFIX, gstatic.com, 美国节点
+DOMAIN-SUFFIX, googlevideo.com, FALLBACK   DOMAIN-SUFFIX, ytimg.com, FALLBACK
+DOMAIN-SUFFIX, gstatic.com,FALLBACK
 
 #Script
 #爱思助手//list-app-m.i4.cn,app-m.i4.cn
@@ -354,8 +346,6 @@ DOMAIN-SUFFIX, gstatic.com, 美国节点
 #淘宝 • 开屏活动弹窗接口（poplayer）
 ^https:\/\/poplayer\.template\.alibaba\.com\/\w+\.json url jsonjq-response-body '{"res":{"images":[],"videos":[]},"mainRes":{"images":[]},"enable":false}'
 
- 
-
 #WiFi万能钥匙//cds.wifi188.com
 #首页弹窗广告
 ^https?:\/\/cds\.wifi188\.com\/feeds\.sec url reject-dict
@@ -469,5 +459,5 @@ DOMAIN-SUFFIX, gstatic.com, 美国节点
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getmyprofilev3 url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhuanzhuan/zhuanzhuan.js
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/getchoicegoodsinfos url response-body infoData response-body fmz200
 
-hostname= -i.vip.iqiyi.com, *.iqiyi.com, list-app-m.i4.cn, pan.baidu.com, tiebac.baidu.com, tieba.baidu.com, www.baidu.com, fcvbjbcebos.baidu.com, cover.baidu.com, baichuan.baidu.com, api*.tuisong.baidu.com, mobads.baidu.com, issuecdn.baidupcs.com, sa*.tuisong.baidu.com, m.baidu.com, sofire.baidu.com, acs.m.taobao.com, az4-api.ksapisrv.com, az4-api-idc.ksapisrv.com, az2-api.ksapisrv.com, az2-api-idc.ksapisrv.com, apissl.gifshow.com, apissl.ksapisrv.com, az2-api-js.gifshow.com, az2-live.ksapisrv.com, , gateway.kugou.com, fx.service.kugou.com, hwstore.kugou.com, ep.kugou.com, gatewayretry.kugou.com, gzacshow.kugou.com, m1fxgroup.kugou.com, apimobile.meituan.com, img.meituan.net, p*.meituan.net, s3plus.meituan.net, flowplus.meituan.net, portal-portm.meituan.com, sqt.meituan.com, wmapi.meituan.com, p*.meituan.net, s3plus.meituan.net, midc.cdn-static.abchina.com.cn, enjoy.cdn-static.abchina.com, midc.cdn-static.abchina.com.cn, enjoy.cdn-static.abchina.com, firefly.abchina.com.cn, *.ly.com, *.17usoft.com, *.17u.cn, mobilehotelapi.elong.com, quic-tcmapi.elong.com, acs.m.taobao.com,heic.alicdn.com,guide-acs.m.taobao.com, poplayer.template.alibaba.com, cds.wifi188.com,conf-m-ssl.xunlei.com, api-shoulei-ssl.xunlei.com, acs.m.goofish.com, g-acs.m.goofish.com, oneapp-api.faw-vw.com, an.baidu.com, mbd.baidu.com, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, mars.ccc.cmbchina.com, marscc.bcs.cmbchina.com, intellicc.b*s.cmbchina.com, *mbasecc.b*s.cmbchina.com,app.zhuanzhuan.com
+hostname = -i.vip.iqiyi.com, *.iqiyi.com, list-app-m.i4.cn, pan.baidu.com, tiebac.baidu.com, tieba.baidu.com, www.baidu.com, fcvbjbcebos.baidu.com, cover.baidu.com, baichuan.baidu.com, api*.tuisong.baidu.com, mobads.baidu.com, issuecdn.baidupcs.com, sa*.tuisong.baidu.com, m.baidu.com, sofire.baidu.com, acs.m.taobao.com, az4-api.ksapisrv.com, az4-api-idc.ksapisrv.com, az2-api.ksapisrv.com, az2-api-idc.ksapisrv.com, apissl.gifshow.com, apissl.ksapisrv.com, az2-api-js.gifshow.com, az2-live.ksapisrv.com, gateway.kugou.com, fx.service.kugou.com, hwstore.kugou.com, ep.kugou.com, gatewayretry.kugou.com, gzacshow.kugou.com, m1fxgroup.kugou.com, apimobile.meituan.com, img.meituan.net, p*.meituan.net, s3plus.meituan.net, flowplus.meituan.net, portal-portm.meituan.com, sqt.meituan.com, wmapi.meituan.com, p*.meituan.net, s3plus.meituan.net, midc.cdn-static.abchina.com.cn, enjoy.cdn-static.abchina.com, midc.cdn-static.abchina.com.cn, enjoy.cdn-static.abchina.com, firefly.abchina.com.cn, *.ly.com, *.17usoft.com, *.17u.cn, mobilehotelapi.elong.com, quic-tcmapi.elong.com, acs.m.taobao.com,heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, cds.wifi188.com, conf-m-ssl.xunlei.com, api-shoulei-ssl.xunlei.com, acs.m.goofish.com, g-acs.m.goofish.com, oneapp-api.faw-vw.com, an.baidu.com, mbd.baidu.com, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, mars.ccc.cmbchina.com, marscc.bcs.cmbchina.com, intellicc.b*s.cmbchina.com, *mbasecc.b*s.cmbchina.com, app.zhuanzhuan.com
 
