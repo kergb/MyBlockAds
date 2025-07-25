@@ -2,188 +2,142 @@
 #!desc = 自用去广告插件
 
 #爱奇艺
-DOMAIN,access.if.iqiyi.com,REJECT
-DOMAIN,api.iqiyi.com,REJECT
-DOMAIN-SUFFIX,cupid.iqiyi.com,DIRECT
-IP-CIDR,103.44.59.54/32,REJECT,no-resolve
-IP-CIDR,111.63.147.158/32,REJECT,no-resolve
-IP-CIDR,116.211.198.237/32,REJECT,no-resolve
+IP-CIDR, 116.211.198.237/32, reject, no-resolve
+IP-CIDR, 111.63.147.158/32, reject, no-resolve
+IP-CIDR, 103.44.59.54/32, reject, no-resolve
+DOMAIN-SUFFIX, cupid.iqiyi.com, direct
+DOMAIN, access.if.iqiyi.com, reject
+DOMAIN, api.iqiyi.com, reject
 
-#BaiDu
+#百度
 DOMAIN-SUFFIX, pos.baidu.com, reject
-DOMAIN, mobads.baidu.com, reject
 IP-CIDR, 180.76.76.112/32, reject
 IP-CIDR, 180.76.76.200/32, reject
-#BaiDuTieBa
-host,afd.baidu.com, reject
-host,mobads.baidu.com, reject
+DOMAIN, mobads.baidu.com, reject
+
+#百度贴吧
+host, mobads.baidu.com, reject
+host, afd.baidu.com, reject
 
 #ChatGDP
-DOMAIN-SUFFIX,openai.com, 美国节点
-DOMAIN-SUFFIX,chat.openai.com, 美国节点
-DOMAIN-SUFFIX,auth0.openai.com, 美国节点
-DOMAIN-SUFFIX,cdn.openai.com, 美国节点
-DOMAIN-SUFFIX,oaistatic.co, 美国节点
-DOMAIN-SUFFIX,platform.openai.com, 美国节点
+DOMAIN-SUFFIX, platform.openai.com, 美国节点
+DOMAIN-SUFFIX, auth0.openai.com, 美国节点
+DOMAIN-SUFFIX, chat.openai.com, 美国节点
+DOMAIN-SUFFIX, cdn.openai.com, 美国节点
+DOMAIN-SUFFIX, oaistatic.co, 美国节点
+DOMAIN-SUFFIX, openai.com, 美国节点
+
+#高德地图
+DOMAIN, amap-aos-info-nogw.amap.com, reject
+DOMAIN, free-aos-cdn-image.amap.com, reject
+DOMAIN-SUFFIX, v.smtcdns.com, reject
 
 #Google
-DOMAIN-SUFFIX,gstatic.com, 美国节点
-DOMAIN-SUFFIX,googleapis.com, 美国节点
-DOMAIN-SUFFIX,google.com, 美国节点
+DOMAIN-SUFFIX, googleapis.com, 美国节点
+DOMAIN-SUFFIX, gstatic.com, 美国节点
+DOMAIN-SUFFIX, google.com, 美国节点
 
 #Gmail
+DOMAIN-SUFFIX, googlemail.com, direct
+DOMAIN-SUFFIX, google.com, direct
+DOMAIN-SUFFIX, gmail.com, direct
 DOMAIN, imap.gmail.com, direct
 DOMAIN, smtp.gmail.com, direct
 DOMAIN, pop.gmail.com, direct
-DOMAIN-SUFFIX, gmail.com, direct
-DOMAIN-SUFFIX, googlemail.com, direct
-DOMAIN-SUFFIX, google.com, direct
 
 #建设银行
-domain-keyword, adv.ccb.com, reject
-# 京东
-domain, dns.jd.com, reject
+DOMAIN-KEYWORD, adv.ccb.com, reject
+
+#京东
 ip-cidr, 101.124.19.122/32, reject
+DOMAIN, dns.jd.com, reject
 
 #iCloud邮箱
+DOMAIN-SUFFIX, icloud.com, direct
 DOMAIN, imap.mail.me.com, direct
 DOMAIN, smtp.mail.me.com, direct
-DOMAIN-SUFFIX, icloud.com, direct
 DOMAIN-SUFFIX, me.com, direct
 
 #酷狗音乐
-DOMAIN, ads.service.kugou.com, REJECT
-DOMAIN, adstats.tencentmusic.com, REJECT
-DOMAIN, adsmind.gdtimg.com, REJECT
-DOMAIN, adserviceretry.kugou.com, REJECT
-DOMAIN, adserviceretry.kglink.cn, REJECT
-DOMAIN, ad.tencentmusic.com, REJECT
-DOMAIN, adservice.kugou.com, REJECT
-DOMAIN, splashimgretrybssdl.cloud.kugou.com, REJECT
+DOMAIN, splashimgretrybssdl.cloud.kugou.com, reject
+DOMAIN, adstats.tencentmusic.com, reject 
+DOMAIN, adserviceretry.kugou.com, reject
+DOMAIN, adserviceretry.kglink.cn, reject 
+DOMAIN, adserviceretry.kglink.cn, reject 
+DOMAIN, ads.service.kugou.com, reject 
+DOMAIN, ad.tencentmusic.com, reject 
+DOMAIN, adservice.kugou.com, reject 
+DOMAIN, adsmind.gdtimg.com, reject
 
 #快手
-DOMAIN-SUFFIX,e.kuaishou.com, reject
-DOMAIN,js-ad.a.yximgs.com, reject
+DOMAIN-SUFFIX, e.kuaishou.com, reject
+DOMAIN, js-ad.a.yximgs.com, reject
 
 #美团
 DOMAIN, maplocatesdksnapshot.d.meituan.net, reject
 DOMAIN, metrics-picture.d.meituan.net, reject
-IP-CIDR, 103.37.155.60/32, reject
-host, flowplus.meituan.net, reject
+host-suffix, ad.e.waimai.sankuai.com, reject
 host-suffix, analytics.meituan.net, reject
-host-suffix, meituan.n, reject
-host-suffix, meituan.yoga, reject
-host-suffix, meituangov.c, reject
+host-suffix, dreport.meituan.net, reject
 host-suffix, report.meituan.com, reject
 host-suffix, wmlog.meituan.com, reject
-host-suffix, ad.e.waimai.sankuai.com, reject
 host-suffix, mads.meituan.com, reject
-host-suffix, dreport.meituan.net, reject
 host-suffix, d.meituan.net, reject
+host, flowplus.meituan.net, reject
+IP-CIDR, 103.37.155.60/32, reject
+host-suffix, meituan.yoga, reject
+host-suffix, meituangov.c, reject
+host-suffix, meituan.n, reject
 
-#MissAV.com 
-DOMAIN-SUFFIX,trackwilltrk.com, reject
-DOMAIN-SUFFIX,rmhfrtnd.com, reject
-DOMAIN-SUFFIX,video.ktkjmp.com, reject
-DOMAIN-SUFFIX,go.myavlive.com, reject
-DOMAIN-SUFFIX,gsjln04hd.com, reject
-DOMAIN-SUFFIX,creative.myavlive.com, reject
-DOMAIN-SUFFIX,creative.live.missav.com, reject
-DOMAIN-SUFFIX,cashewsforlife208.com, reject
-DOMAIN-SUFFIX,ingest.sentry, reject
-DOMAIN-SUFFIX,phloxsub73ulata.com, reject
-DOMAIN-SUFFIX,xxxjmp.com, reject
-DOMAIN-SUFFIX,pitrespite.com, reject
-DOMAIN-SUFFIX,alexametrics.com, reject
-DOMAIN-SUFFIX,designslicensedeep.com, reject
-DOMAIN-SUFFIX,a.bestcontentfood.top, reject
-DOMAIN-SUFFIX,tsyndicate.com, reject
-DOMAIN-SUFFIX,cashewsforlife208.com, reject
-DOMAIN-SUFFIX,e67repidwnfu7gcha.com, reject
-DOMAIN-SUFFIX,mc7clurd09pla4nrtat7ion.com, reject
-DOMAIN-SUFFIX,e67repidwnfu7gcha.com, reject
-DOMAIN-SUFFIX,wuzbhjpvsf.com, reject
-DOMAIN-SUFFIX,a.realsrv.com, reject
+#NB助手屏蔽更新
+DOMAIN, media-sxty-fy-home01.sx3oss.ctyunxs.cn, reject
 
-# NB助手屏蔽更新
-DOMAIN,media-sxty-fy-home01.sx3oss.ctyunxs.cn, reject
 #QQ邮箱
 DOMAIN, imap.qq.com, direct
 DOMAIN, smtp.qq.com, direct
 DOMAIN, pop.qq.com, direct
 DOMAIN-SUFFIX, qq.com, direct
 
-#Twitter
-DOMAIN-SUFFIX,twitter.biz,美国节点
-DOMAIN-SUFFIX,t.co,美国节点
-DOMAIN-SUFFIX,twimg.co,美国节点
-DOMAIN-SUFFIX,vine.co,美国节点
-DOMAIN-SUFFIX,ads-twitter.com,美国节点
-DOMAIN-SUFFIX,cms-twdigitalassets.com,美国节点
-DOMAIN-SUFFIX,tellapart.com,美国节点
-DOMAIN-SUFFIX,tweetdeck.com,美国节点
-DOMAIN-SUFFIX,twimg.com,美国节点
-DOMAIN-SUFFIX,twitpic.com,美国节点
-DOMAIN-SUFFIX,twitter.com,美国节点
-DOMAIN-SUFFIX,twittercommunity.com,美国节点
-DOMAIN-SUFFIX,twitterflightschool.com,美国节点
-DOMAIN-SUFFIX,twitterinc.com,美国节点
-DOMAIN-SUFFIX,twitteroauth.com,美国节点
-DOMAIN-SUFFIX,twttr.com,美国节点
-DOMAIN-SUFFIX,twvid.com,美国节点
-DOMAIN-SUFFIX,x.com,美国节点
-DOMAIN-SUFFIX,twitter.jp,美国节点
-DOMAIN-SUFFIX,twtrdns.net,美国节点
-DOMAIN-SUFFIX,twttr.net,美国节点
-DOMAIN-SUFFIX,twimg.org,美国节点
-DOMAIN-SUFFIX,periscope.tv,美国节点
-DOMAIN-SUFFIX,pscp.tv,美国节点
-DOMAIN-SUFFIX,twitterstat.us,美国节点
-DOMAIN-KEYWORD,twitter,美国节点
-IP-CIDR,202.160.128.0/22,美国节点
-IP-CIDR,199.59.148.0/22,美国节点
-IP-CIDR,192.133.76.0/22,美国节点
-IP-CIDR,199.96.56.0/21,美国节点
-IP-CIDR,209.237.192.0/19, 美国节点
-IP-CIDR,69.195.160.0/19, 美国节点
-
 #腾讯
-DOMAIN-KEYWORD, trace.qq.com, reject
 DOMAIN-KEYWORD, trace.video.qq.com, reject
-DOMAIN-SUFFIX, gdt.qq.com, reject
-DOMAIN-SUFFIX, l.qq.com, reject
+DOMAIN, ios.video.mpush.qq.com, reject
+DOMAIN, otheve.beacon.qq.com, reject
+DOMAIN-KEYWORD, trace.qq.com, reject
 DOMAIN, adsmind.gdtimg.com, reject
 DOMAIN, info4.video.qq.com, reject
 DOMAIN, info6.video.qq.com, reject
-DOMAIN, ios.video.mpush.qq.com, reject
-DOMAIN, otheve.beacon.qq.com, reject
-DOMAIN, pgdt.gtimg.cn, reject
-DOMAIN, pgdt.ugdtimg.com, reject
-DOMAIN, tmead.y.qq.com, reject
-DOMAIN, tmeadbak.y.qq.com, reject
 DOMAIN, tmeadcomm.y.qq.com, reject
-DOMAIN, tpns.qq.com, reject
+DOMAIN, tmeadbak.y.qq.com, reject
 IP-CIDR, 47.110.187.87/32, reject
+DOMAIN-SUFFIX, gdt.qq.com, reject
+DOMAIN, pgdt.ugdtimg.com, reject
+DOMAIN-SUFFIX, l.qq.com, reject
+DOMAIN, tmead.y.qq.com, reject
+DOMAIN, pgdt.gtimg.cn, reject
+DOMAIN, tpns.qq.com, reject
 
 #WeChat
-DOMAIN-SUFFIX, wxs.qq.com, reject
 DOMAIN, badjs.weixinbridge.com, reject
 DOMAIN, dns.weixin.qq.com.cn, reject
+DOMAIN-SUFFIX, wxs.qq.com, reject
+
 #闲鱼
 user-agent, %E9%97%B2%E9%B1%BC*, reject
 
 # 油管分流
-DOMAIN-SUFFIX, googlevideo.com, FALLBACK   
-DOMAIN-SUFFIX, ytimg.com, FALLBACK
-DOMAIN-SUFFIX, gstatic.com,FALLBACK
+DOMAIN-SUFFIX, googlevideo.com, 全球加速   
+DOMAIN-SUFFIX, gstatic.com, 全球加速
+DOMAIN-SUFFIX, ytimg.com, 全球加速
 
-#Script
+#url
 #爱思助手//list-app-m.i4.cn,app-m.i4.cn
+#开屏广告
 ^https?://list-app-m.i4.cn/getopfstadinfo.xhtml url jsonjq-response-body '{"status":0,"msg":"ok","data":[]}'
+
+#精选页面广告占位符
 ^https?:\/\/(search|list)-app-m\.i4\.cn\/(getHotSearchList|getAppList)\.xhtml url jsonjq-response-body 'del(.adli, .list, .ad, .banner)'
 
-#爱奇艺
-# hostname = -i.vip.iqiyi.com, *.iqiyi.com
+#爱奇艺//hostname = -i.vip.iqiyi.com, *.iqiyi.com
 # 播放页开通会员提示
 ^https?:\/\/act\.vip\.iqiyi\.com\/interact\/api\/v2\/show\? url reject-dict
 # 首页信息流广告
@@ -248,6 +202,35 @@ DOMAIN-SUFFIX, gstatic.com,FALLBACK
 
 #大麦// acs.m.taobao.com
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.wireless\.home\.welcome url reject-200
+
+#高德地图//hostname = *.amap.com
+^https?:\/\/.*\.amap\.com\/ws\/banner\/lists\/\? url reject-dict
+^https?:\/\/.*\.amap\.com\/ws\/boss\/(order\/car\/king_toolbox_car_bubble|tips\/onscene_visual_optimization) url reject-dict
+^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/card-service-(car-end|route-plan) url reject-dict
+^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/(main-page-assets|main-page-location|ridewalk-end-fc) url reject-dict
+^https?:\/\/.*\.amap\.com\/ws\/msgbox\/pull_mp\? url reject-dict
+^https?:\/\/.*\.amap\.com\/ws\/shield\/dsp\/app\/startup\/init\? url reject-dict
+^https?:\/\/.*\.amap\.com\/ws\/shield\/scene\/recommend\? url reject-dict
+^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/new_hotword\? url reject-dict
+^https?:\/\/.*\.amap\.com\/ws\/shield\/search_poi\/tips_adv\? url reject-dict
+^https?:\/\/.*\.amap\.com\/ws\/valueadded\/ url reject
+^https?:\/\/.*\.amap\.com\/ws\/(mapapi\/hint_text\/offline_data|message\/notice\/list|shield\/search\/new_hotword) url reject-dict
+
+^https?:\/\/.*\.amap\.com\/ws\/aos\/perception\/publicTravel\/beforeNavi\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/.*\.amap\.com\/ws\/boss\/(car\/order\/content_info|order_web\/friendly_information) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/.*\.amap\.com\/ws\/bus\/plan\/integrate\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/.*\.amap\.com\/ws\/c3frontend\/af-(hotel|launch)\/page\/main\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/(card-service-plan-home|main-page) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/.*\.amap\.com\/ws\/perception\/drive\/(routeInfo|routePlan) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource(\/home)?\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/.*\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_car_tips\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/.*\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv\d\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/.*\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable\/1\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/(common\/coupon\/info|poi\/detail) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/nearbyrec_smart\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/.*\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/.*\.amap\.com\/ws\/shield\/search_poi\/(homepage|mps|search\/sp|sug|tips_operation_location) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+
 
 #快手//az4-api.ksapisrv.com, az4-api-idc.ksapisrv.com, az2-api.ksapisrv.com, az2-api-idc.ksapisrv.com, apissl.gifshow.com, apissl.ksapisrv.com, az2-api-js.gifshow.com, az2-live.ksapisrv.com
 ^https?:\/\/(apissl|az2-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/system\/startup\? url jsonjq-response-body 'delpaths([["reskinConfig"]])'
@@ -348,7 +331,6 @@ DOMAIN-SUFFIX, gstatic.com,FALLBACK
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources url reject-dict
 #开屏广告
 ^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/\d*\/?[\w!]+-\d-(octopus|tps-1125-1602|tps-1080-1920|tps-1125-1950)\.(jp|pn)g_(1\d{3}|9\d{2})x(1\d{3}|9\d{2})q[59]0 url reject-dict
-
 ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(volvo\.secondfloor\.getconfig|wireless\.home\.newface\.awesome\.get) url reject-dict
 
 #^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get) url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/taobao.js
@@ -474,5 +456,5 @@ DOMAIN-SUFFIX, gstatic.com,FALLBACK
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getmyprofilev3 url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhuanzhuan/zhuanzhuan.js
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/getchoicegoodsinfos url response-body infoData response-body fmz200
 
-hostname = -i.vip.iqiyi.com, *.iqiyi.com, list-app-m.i4.cn, pan.baidu.com, tiebac.baidu.com, tieba.baidu.com, www.baidu.com, fcvbjbcebos.baidu.com, cover.baidu.com, baichuan.baidu.com, api*.tuisong.baidu.com, mobads.baidu.com, issuecdn.baidupcs.com, sa*.tuisong.baidu.com, m.baidu.com, sofire.baidu.com, acs.m.taobao.com, az4-api.ksapisrv.com, az4-api-idc.ksapisrv.com, az2-api.ksapisrv.com, az2-api-idc.ksapisrv.com, apissl.gifshow.com, apissl.ksapisrv.com, az2-api-js.gifshow.com, az2-live.ksapisrv.com, gateway.kugou.com, fx.service.kugou.com, hwstore.kugou.com, ep.kugou.com, gatewayretry.kugou.com, gzacshow.kugou.com, m1fxgroup.kugou.com, apimobile.meituan.com, img.meituan.net, p*.meituan.net, s3plus.meituan.net, flowplus.meituan.net, portal-portm.meituan.com, sqt.meituan.com, wmapi.meituan.com, p*.meituan.net, s3plus.meituan.net, midc.cdn-static.abchina.com.cn, enjoy.cdn-static.abchina.com, midc.cdn-static.abchina.com.cn, enjoy.cdn-static.abchina.com, firefly.abchina.com.cn, *.ly.com, *.17usoft.com, *.17u.cn, mobilehotelapi.elong.com, quic-tcmapi.elong.com, acs.m.taobao.com,heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, cds.wifi188.com, conf-m-ssl.xunlei.com, api-shoulei-ssl.xunlei.com, acs.m.goofish.com, g-acs.m.goofish.com, oneapp-api.faw-vw.com, an.baidu.com, mbd.baidu.com, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, mars.ccc.cmbchina.com, marscc.bcs.cmbchina.com, intellicc.b*s.cmbchina.com, *mbasecc.b*s.cmbchina.com, app.zhuanzhuan.com
+hostname = -i.vip.iqiyi.com, *.iqiyi.com, list-app-m.i4.cn, pan.baidu.com, tiebac.baidu.com, tieba.baidu.com, www.baidu.com, fcvbjbcebos.baidu.com, cover.baidu.com, baichuan.baidu.com, api*.tuisong.baidu.com, mobads.baidu.com, issuecdn.baidupcs.com, sa*.tuisong.baidu.com, m.baidu.com, sofire.baidu.com, acs.m.taobao.com, *.amap.com, az4-api.ksapisrv.com, az4-api-idc.ksapisrv.com, az2-api.ksapisrv.com, az2-api-idc.ksapisrv.com, apissl.gifshow.com, apissl.ksapisrv.com, az2-api-js.gifshow.com, az2-live.ksapisrv.com, gateway.kugou.com, fx.service.kugou.com, hwstore.kugou.com, ep.kugou.com, gatewayretry.kugou.com, gzacshow.kugou.com, m1fxgroup.kugou.com, apimobile.meituan.com, img.meituan.net, p*.meituan.net, s3plus.meituan.net, flowplus.meituan.net, portal-portm.meituan.com, sqt.meituan.com, wmapi.meituan.com, p*.meituan.net, s3plus.meituan.net, midc.cdn-static.abchina.com.cn, enjoy.cdn-static.abchina.com, midc.cdn-static.abchina.com.cn, enjoy.cdn-static.abchina.com, firefly.abchina.com.cn, *.ly.com, *.17usoft.com, *.17u.cn, mobilehotelapi.elong.com, quic-tcmapi.elong.com, acs.m.taobao.com,heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, cds.wifi188.com, conf-m-ssl.xunlei.com, api-shoulei-ssl.xunlei.com, acs.m.goofish.com, g-acs.m.goofish.com, oneapp-api.faw-vw.com, an.baidu.com, mbd.baidu.com, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, mars.ccc.cmbchina.com, marscc.bcs.cmbchina.com, intellicc.b*s.cmbchina.com, *mbasecc.b*s.cmbchina.com, app.zhuanzhuan.com
 
