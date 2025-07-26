@@ -2,80 +2,53 @@
 #!desc = 自用去广告插件
 
 #爱奇艺
-IP-CIDR, 116.211.198.237/32, reject, no-resolve
-IP-CIDR, 111.63.147.158/32, reject, no-resolve
-IP-CIDR, 103.44.59.54/32, reject, no-resolve
-DOMAIN-SUFFIX, cupid.iqiyi.com, direct
-DOMAIN, access.if.iqiyi.com, reject
-DOMAIN, api.iqiyi.com, reject
+ip-cidr, 116.211.198.237/32, reject, no-resolve
+ip-cidr, 111.63.147.158/32, reject, no-resolve
+ip-cidr, 103.44.59.54/32, reject, no-resolve
+host-suffix, cupid.iqiyi.com, direct
+host, access.if.iqiyi.com, reject
+host, api.iqiyi.com, reject
 
 #百度
-DOMAIN-SUFFIX, pos.baidu.com, reject
-IP-CIDR, 180.76.76.112/32, reject
-IP-CIDR, 180.76.76.200/32, reject
-DOMAIN, mobads.baidu.com, reject
+host-suffix, pos.baidu.com, reject
+ip-cidr, 180.76.76.112/32, reject
+ip-cidr, 180.76.76.200/32, reject
+host, mobads.baidu.com, reject
 
 #百度贴吧
 host, mobads.baidu.com, reject
 host, afd.baidu.com, reject
 
-#ChatGDP
-DOMAIN-SUFFIX, platform.openai.com, 美国节点
-DOMAIN-SUFFIX, auth0.openai.com, 美国节点
-DOMAIN-SUFFIX, chat.openai.com, 美国节点
-DOMAIN-SUFFIX, cdn.openai.com, 美国节点
-DOMAIN-SUFFIX, oaistatic.co, 美国节点
-DOMAIN-SUFFIX, openai.com, 美国节点
-
 #高德地图
-DOMAIN, amap-aos-info-nogw.amap.com, reject
-DOMAIN, free-aos-cdn-image.amap.com, reject
-DOMAIN-SUFFIX, v.smtcdns.com, reject
-
-#Google
-DOMAIN-SUFFIX, googleapis.com, 美国节点
-DOMAIN-SUFFIX, gstatic.com, 美国节点
-DOMAIN-SUFFIX, google.com, 美国节点
-
-#Gmail
-DOMAIN-SUFFIX, googlemail.com, direct
-DOMAIN-SUFFIX, google.com, direct
-DOMAIN-SUFFIX, gmail.com, direct
-DOMAIN, imap.gmail.com, direct
-DOMAIN, smtp.gmail.com, direct
-DOMAIN, pop.gmail.com, direct
+host, amap-aos-info-nogw.amap.com, reject
+host, free-aos-cdn-image.amap.com, reject
+host-suffix, v.smtcdns.com, reject
 
 #建设银行
-DOMAIN-KEYWORD, adv.ccb.com, reject
+host-keyword, adv.ccb.com, reject
 
 #京东
 ip-cidr, 101.124.19.122/32, reject
-DOMAIN, dns.jd.com, reject
-
-#iCloud邮箱
-DOMAIN-SUFFIX, icloud.com, direct
-DOMAIN, imap.mail.me.com, direct
-DOMAIN, smtp.mail.me.com, direct
-DOMAIN-SUFFIX, me.com, direct
+host, dns.jd.com, reject
 
 #酷狗音乐
-DOMAIN, splashimgretrybssdl.cloud.kugou.com, reject
-DOMAIN, adstats.tencentmusic.com, reject 
-DOMAIN, adserviceretry.kugou.com, reject
-DOMAIN, adserviceretry.kglink.cn, reject 
-DOMAIN, adserviceretry.kglink.cn, reject 
-DOMAIN, ads.service.kugou.com, reject 
-DOMAIN, ad.tencentmusic.com, reject 
-DOMAIN, adservice.kugou.com, reject 
-DOMAIN, adsmind.gdtimg.com, reject
+host, splashimgretrybssdl.cloud.kugou.com, reject
+host, adstats.tencentmusic.com, reject 
+host, adserviceretry.kugou.com, reject
+host, adserviceretry.kglink.cn, reject 
+host, adserviceretry.kglink.cn, reject 
+host, ads.service.kugou.com, reject 
+host, ad.tencentmusic.com, reject 
+host, adservice.kugou.com, reject 
+host, adsmind.gdtimg.com, reject
 
 #快手
-DOMAIN-SUFFIX, e.kuaishou.com, reject
-DOMAIN, js-ad.a.yximgs.com, reject
+host-suffix, e.kuaishou.com, reject
+host, js-ad.a.yximgs.com, reject
 
 #美团
-DOMAIN, maplocatesdksnapshot.d.meituan.net, reject
-DOMAIN, metrics-picture.d.meituan.net, reject
+host, maplocatesdksnapshot.d.meituan.net, reject
+host, metrics-picture.d.meituan.net, reject
 host-suffix, ad.e.waimai.sankuai.com, reject
 host-suffix, analytics.meituan.net, reject
 host-suffix, dreport.meituan.net, reject
@@ -84,50 +57,34 @@ host-suffix, wmlog.meituan.com, reject
 host-suffix, mads.meituan.com, reject
 host-suffix, d.meituan.net, reject
 host, flowplus.meituan.net, reject
-IP-CIDR, 103.37.155.60/32, reject
+ip-cidr, 103.37.155.60/32, reject
 host-suffix, meituan.yoga, reject
 host-suffix, meituangov.c, reject
 host-suffix, meituan.n, reject
 
 #NB助手屏蔽更新
-DOMAIN, media-sxty-fy-home01.sx3oss.ctyunxs.cn, reject
-
-#QQ邮箱
-DOMAIN, imap.qq.com, direct
-DOMAIN, smtp.qq.com, direct
-DOMAIN, pop.qq.com, direct
-DOMAIN-SUFFIX, qq.com, direct
+host, media-sxty-fy-home01.sx3oss.ctyunxs.cn, reject
 
 #腾讯
-DOMAIN-KEYWORD, trace.video.qq.com, reject
-DOMAIN, ios.video.mpush.qq.com, reject
-DOMAIN, otheve.beacon.qq.com, reject
-DOMAIN-KEYWORD, trace.qq.com, reject
-DOMAIN, adsmind.gdtimg.com, reject
-DOMAIN, info4.video.qq.com, reject
-DOMAIN, info6.video.qq.com, reject
-DOMAIN, tmeadcomm.y.qq.com, reject
-DOMAIN, tmeadbak.y.qq.com, reject
-IP-CIDR, 47.110.187.87/32, reject
-DOMAIN-SUFFIX, gdt.qq.com, reject
-DOMAIN, pgdt.ugdtimg.com, reject
-DOMAIN-SUFFIX, l.qq.com, reject
-DOMAIN, tmead.y.qq.com, reject
-DOMAIN, pgdt.gtimg.cn, reject
-DOMAIN, tpns.qq.com, reject
-
-#WeChat
-DOMAIN, badjs.weixinbridge.com, reject
-DOMAIN, dns.weixin.qq.com.cn, reject
-DOMAIN-SUFFIX, wxs.qq.com, reject
+host-keyword, trace.video.qq.com, reject
+host, ios.video.mpush.qq.com, reject
+host, otheve.beacon.qq.com, reject
+host-keyword, trace.qq.com, reject
+host, adsmind.gdtimg.com, reject
+host, info4.video.qq.com, reject
+host, info6.video.qq.com, reject
+host, tmeadcomm.y.qq.com, reject
+ip-cidr,47.110.187.87/32, reject
+host, tmeadbak.y.qq.com, reject
+host-suffix, gdt.qq.com, reject
+host, pgdt.ugdtimg.com, reject
+host-suffix, l.qq.com, reject
+host, tmead.y.qq.com, reject
+host, pgdt.gtimg.cn, reject
+host, tpns.qq.com, reject
 
 #闲鱼
 user-agent, %E9%97%B2%E9%B1%BC*, reject
-
-# 油管分流
-DOMAIN-SUFFIX, googlevideo.com, 全球加速   
-DOMAIN-SUFFIX, gstatic.com, 全球加速
-DOMAIN-SUFFIX, ytimg.com, 全球加速
 
 #url
 #爱思助手//list-app-m.i4.cn,app-m.i4.cn
