@@ -58,6 +58,16 @@ DOMAIN, imap.mail.me.com, direct
 DOMAIN, smtp.mail.me.com, direct
 DOMAIN-SUFFIX, me.com, direct
 
+#酷狗音乐
+DOMAIN, splashimgretrybssdl.cloud.kugou.com, reject
+DOMAIN, adstats.tencentmusic.com, reject 
+DOMAIN, adserviceretry.kugou.com, reject
+DOMAIN, adserviceretry.kglink.cn, reject 
+DOMAIN, adserviceretry.kglink.cn, reject 
+DOMAIN, ads.service.kugou.com, reject 
+DOMAIN, ad.tencentmusic.com, reject 
+DOMAIN, adservice.kugou.com, reject 
+DOMAIN, adsmind.gdtimg.com, reject
 
 #快手
 DOMAIN-SUFFIX, e.kuaishou.com, reject
