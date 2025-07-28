@@ -329,7 +329,7 @@ user-agent, %E9%97%B2%E9%B1%BC*, reject
 ^https:\/\/weibo\.com\/ttarticle\/x\/m\/aj\/(?:reward|uvead) url reject-dict
 
 #微博热搜顶部的tab页分组
-^https?:\/\/m?api\.weibo\.c(n|om)\/2\/(page|flowpage)\? url jsonjq-response-body .pageHeader={}
+#^https?:\/\/m?api\.weibo\.c(n|om)\/2\/(page|flowpage)\? url jsonjq-response-body .pageHeader={}
 
 #移除首页推广 
 ^https:\/\/api\.weibo\.cn\/2\/(?:checkin\/show|client\/publisher_list|push\/active) url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/weibo.js
