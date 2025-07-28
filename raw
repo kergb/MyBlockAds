@@ -328,6 +328,9 @@ user-agent, %E9%97%B2%E9%B1%BC*, reject
 ^https:\/\/card\.weibo\.com\/article\/m\/aj\/(?:reward|uvead) url reject-dict
 ^https:\/\/weibo\.com\/ttarticle\/x\/m\/aj\/(?:reward|uvead) url reject-dict
 
+#微博热搜顶部的tab页分组
+^https?:\/\/m?api\.weibo\.c(n|om)\/2\/(page|flowpage)\? url jsonjq-response-body .pageHeader={}
+
 #移除首页推广 
 ^https:\/\/api\.weibo\.cn\/2\/(?:checkin\/show|client\/publisher_list|push\/active) url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/weibo.js
 
@@ -382,9 +385,6 @@ user-agent, %E9%97%B2%E9%B1%BC*, reject
 
 #会员图标 
 ^https:\/\/new\.vip\.weibo\.cn\/aj\/appicon\/list\? url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/weibo.js
-
-#微博热搜顶部的tab页分组
-^https?:\/\/m?api\.weibo\.c(n|om)\/2\/(page|flowpage)\? url jsonjq-response-body .pageHeader={}
 
 #迅雷//conf-m-ssl.xunlei.com, api-shoulei-ssl.xunlei.com
 ^https:\/\/conf-m-ssl\.xunlei\.com\/external\/ url jsonjq-response-body 'del(.values.me_config.entrance_list_vertical_enable, .values.me_config.common_service_list, .values.me_config.banner_service_list)'
