@@ -8,29 +8,23 @@ ip-cidr, 103.44.59.54/32, reject, no-resolve
 host-suffix, cupid.iqiyi.com, direct
 host, access.if.iqiyi.com, reject
 host, api.iqiyi.com, reject
-
 #百度
 host-suffix, pos.baidu.com, reject
 ip-cidr, 180.76.76.112/32, reject
 ip-cidr, 180.76.76.200/32, reject
 host, mobads.baidu.com, reject
-
 #百度贴吧
 host, mobads.baidu.com, reject
 host, afd.baidu.com, reject
-
 #高德地图
 host, amap-aos-info-nogw.amap.com, reject
 host, free-aos-cdn-image.amap.com, reject
 host-suffix, v.smtcdns.com, reject
-
 #建设银行
 host-keyword, adv.ccb.com, reject
-
 #京东
 ip-cidr, 101.124.19.122/32, reject
 host, dns.jd.com, reject
-
 #酷狗音乐
 host, splashimgretrybssdl.cloud.kugou.com, reject
 host, adstats.tencentmusic.com, reject 
@@ -41,11 +35,13 @@ host, ads.service.kugou.com, reject
 host, ad.tencentmusic.com, reject 
 host, adservice.kugou.com, reject 
 host, adsmind.gdtimg.com, reject
-
 #快手
 host-suffix, e.kuaishou.com, reject
 host, js-ad.a.yximgs.com, reject
-
+#missav
+host-suffix, trackwilltrk.com, reject
+host, creative.myavlive.com, reject
+host-suffix, tsyndicate.com, reject
 #美团
 host, maplocatesdksnapshot.d.meituan.net, reject
 host, metrics-picture.d.meituan.net, reject
@@ -61,10 +57,8 @@ ip-cidr, 103.37.155.60/32, reject
 host-suffix, meituan.yoga, reject
 host-suffix, meituangov.c, reject
 host-suffix, meituan.n, reject
-
 #NB助手屏蔽更新
 host, media-sxty-fy-home01.sx3oss.ctyunxs.cn, reject
-
 #腾讯
 host-keyword, trace.video.qq.com, reject
 host, ios.video.mpush.qq.com, reject
@@ -82,11 +76,9 @@ host-suffix, l.qq.com, reject
 host, tmead.y.qq.com, reject
 host, pgdt.gtimg.cn, reject
 host, tpns.qq.com, reject
-
 #微博
 host-suffix, biz.weibo.com, reject
 host, huodong.weibo.cn, reject
-
 #闲鱼
 user-agent, %E9%97%B2%E9%B1%BC*, reject
 
@@ -327,9 +319,6 @@ user-agent, %E9%97%B2%E9%B1%BC*, reject
 ^https:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/(?:get-lbs-cell-info\.php|sdkconfig\.php) url reject-dict
 ^https:\/\/card\.weibo\.com\/article\/m\/aj\/(?:reward|uvead) url reject-dict
 ^https:\/\/weibo\.com\/ttarticle\/x\/m\/aj\/(?:reward|uvead) url reject-dict
-
-#微博热搜顶部的tab页分组
-#^https?:\/\/m?api\.weibo\.c(n|om)\/2\/(page|flowpage)\? url jsonjq-response-body .pageHeader={}
 
 #移除首页推广 
 ^https:\/\/api\.weibo\.cn\/2\/(?:checkin\/show|client\/publisher_list|push\/active) url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/weibo.js
