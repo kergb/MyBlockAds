@@ -304,6 +304,9 @@ user-agent, %E9%97%B2%E9%B1%BC*, reject
 #首页弹窗广告
 ^https?:\/\/cds\.wifi188\.com\/feeds\.sec url reject-dict
 
+#微博热搜顶部的tab页分组
+^https?:\/\/m?api\.weibo\.c(n|om)\/2\/(page|flowpage)\? url jsonjq-response-body .pageHeader={}
+
 #迅雷//conf-m-ssl.xunlei.com, api-shoulei-ssl.xunlei.com
 ^https:\/\/conf-m-ssl\.xunlei\.com\/external\/ url jsonjq-response-body 'del(.values.me_config.entrance_list_vertical_enable, .values.me_config.common_service_list, .values.me_config.banner_service_list)'
 #精简我的页面
