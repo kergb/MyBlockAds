@@ -91,10 +91,11 @@ user-agent, %E9%97%B2%E9%B1%BC*, reject
 #url
 #爱思助手//list-app-m.i4.cn,app-m.i4.cn
 #开屏广告
-^https?://list-app-m.i4.cn/getopfstadinfo.xhtml url jsonjq-response-body '{"status":0,"msg":"ok","data":[]}'
+^https?:\/\/(search|list)-app-m\.i4\.cn\/(getHotSearchList|getAppList)\.xhtml url jsonjq-response-body 'del(.ad,.data.xhtml)'
+#^https?://list-app-m.i4.cn/getopfstadinfo.xhtml url jsonjq-response-body '{"status":0,"msg":"ok","data":[]}'
 
 #精选页面广告占位符
-^https?:\/\/(search|list)-app-m\.i4\.cn\/(getHotSearchList|getAppList)\.xhtml url jsonjq-response-body 'del(.adli, .list, .ad, .banner)'
+#^https?:\/\/(search|list)-app-m\.i4\.cn\/(getHotSearchList|getAppList)\.xhtml url jsonjq-response-body 'del(.adli, .list, .ad, .banner)'
 
 #爱奇艺//hostname = -i.vip.iqiyi.com, *.iqiyi.com
 # 播放页开通会员提示
