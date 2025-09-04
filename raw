@@ -25,6 +25,8 @@ host-keyword, adv.ccb.com, reject
 #京东
 ip-cidr, 101.124.19.122/32, reject
 host, dns.jd.com, reject
+#javdb
+host, api.liquidlink.cn, reject
 #酷狗音乐
 host, splashimgretrybssdl.cloud.kugou.com, reject
 host, adstats.tencentmusic.com, reject 
