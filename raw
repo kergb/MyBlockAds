@@ -9,11 +9,9 @@ host-suffix, cupid.iqiyi.com, direct
 host, access.if.iqiyi.com, reject
 host, api.iqiyi.com, reject
 #海岛奇兵
-host-suffix, supercell.com, direct
-host-suffix, supercell.net, direct
-host-suffix, helpshift.com, direct
-geoip, fi, direct
-geoip, ie, direct
+host-suffix, supercell.com, proxy
+host-suffix, supercell.net, proxy
+host-suffix, helpshift.com, proxy
 #百度
 host-suffix, pos.baidu.com, reject
 ip-cidr, 180.76.76.112/32, reject
