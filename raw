@@ -1,6 +1,5 @@
 #!name = MyBlockAds
 #!desc = 自用去广告插件
-
 #爱奇艺
 ip-cidr, 116.211.198.237/32, reject, no-resolve
 ip-cidr, 111.63.147.158/32, reject, no-resolve
@@ -8,10 +7,6 @@ ip-cidr, 103.44.59.54/32, reject, no-resolve
 host-suffix, cupid.iqiyi.com, direct
 host, access.if.iqiyi.com, reject
 host, api.iqiyi.com, reject
-#海岛奇兵
-host-suffix, supercell.com, proxy
-host-suffix, supercell.net, proxy
-host-suffix, helpshift.com, proxy
 #百度
 host-suffix, pos.baidu.com, reject
 ip-cidr, 180.76.76.112/32, reject
