@@ -8,6 +8,12 @@ ip-cidr, 103.44.59.54/32, reject, no-resolve
 host-suffix, cupid.iqiyi.com, direct
 host, access.if.iqiyi.com, reject
 host, api.iqiyi.com, reject
+#海岛奇兵
+host-suffix, supercell.com, direct
+host-suffix, supercell.net, direct
+host-suffix, helpshift.com, direct
+geoip, fi, direct
+geoip, ie, direct
 #百度
 host-suffix, pos.baidu.com, reject
 ip-cidr, 180.76.76.112/32, reject
@@ -63,6 +69,8 @@ host-suffix, meituan.n, reject
 host, msmp.abchina.com.cn, reject
 #NB助手屏蔽更新
 host, media-sxty-fy-home01.sx3oss.ctyunxs.cn, reject
+#Telegram
+ip-cidr, 95.161.76.100/31, reject
 #腾讯
 host-keyword, trace.video.qq.com, reject
 host, ios.video.mpush.qq.com, reject
