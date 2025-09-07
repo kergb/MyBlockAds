@@ -64,23 +64,6 @@ host, msmp.abchina.com.cn, reject
 host, media-sxty-fy-home01.sx3oss.ctyunxs.cn, reject
 #Telegram
 ip-cidr, 95.161.76.100/31, reject
-#腾讯
-host-keyword, trace.video.qq.com, reject
-host, ios.video.mpush.qq.com, reject
-host, otheve.beacon.qq.com, reject
-host-keyword, trace.qq.com, reject
-host, adsmind.gdtimg.com, reject
-host, info4.video.qq.com, reject
-host, info6.video.qq.com, reject
-host, tmeadcomm.y.qq.com, reject
-ip-cidr,47.110.187.87/32, reject
-host, tmeadbak.y.qq.com, reject
-host-suffix, gdt.qq.com, reject
-host, pgdt.ugdtimg.com, reject
-host-suffix, l.qq.com, reject
-host, tmead.y.qq.com, reject
-host, pgdt.gtimg.cn, reject
-host, tpns.qq.com, reject
 #微信屏蔽热更新
 host, dl.wechat.com, reject
 host, dldir1.qq.com, reject
