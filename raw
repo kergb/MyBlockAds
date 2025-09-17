@@ -64,10 +64,6 @@ host, msmp.abchina.com.cn, reject
 host, media-sxty-fy-home01.sx3oss.ctyunxs.cn, reject
 #Telegram
 ip-cidr, 95.161.76.100/31, reject
-#微信屏蔽热更新
-host, dl.wechat.com, reject
-host, dldir1.qq.com, reject
-host, dldir1v6.qq.com, reject
 #微博
 host-suffix, biz.weibo.com, reject
 host, huodong.weibo.cn, reject
