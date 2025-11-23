@@ -7,6 +7,20 @@ ip-cidr, 103.44.59.54/32, reject, no-resolve
 host-suffix, cupid.iqiyi.com, direct
 host, access.if.iqiyi.com, reject
 host, api.iqiyi.com, reject
+#Boom Beach
+host-suffix, mediation.unity3d.com, reject 
+host-suffix, unityads.unitychina.cn, reject 
+host-suffix, iads.unity3d.com, reject 
+host-suffix, iadq.unity3d.com, reject 
+host-suffix, applovin.com, reject 
+host-suffix, vungle.com, reject 
+host-suffix, doubleclick.net, reject 
+host-suffix, iadsdk.apple.com, reject 
+host-suffix, appsflyersdk.com, reject 
+host-suffix, supersonicads.com, reject 
+host-suffix, ironsrc.com, reject 
+host-suffix, s.pemsrv.com, reject 
+host-suffix, a.magsrv.com, reject 
 #百度
 host-suffix, pos.baidu.com, reject
 ip-cidr, 180.76.76.112/32, reject
