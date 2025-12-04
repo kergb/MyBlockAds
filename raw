@@ -67,8 +67,6 @@ ip-cidr, 95.161.76.100/31, reject
 #微博
 host-suffix, biz.weibo.com, reject
 host, huodong.weibo.cn, reject
-#闲鱼
-user-agent, %E9%97%B2%E9%B1%BC*, reject
 
 #url
 #爱思助手//list-app-m.i4.cn,app-m.i4.cn
@@ -346,7 +344,9 @@ https?:\/\/m\.360buyimg\.com\/mobilecms\/jfs\/t1\/\d+\/\d+\/\d+\/\d+\/[a-zA-Z0-9
 
 #闲鱼hostname = acs.m.goofish.com, g-acs.m.goofish.com
 #!desc = 去除首页、个人页、搜索页、搜索结果页、关注页、消息页及商品详情页的推广和广告
-#拦截广告下发
+# 分流添加广告下发
+user-agent, %E9%97%B2%E9%B1%BC*, reject
+# 拦截广告下发
 ^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch %E9%97%B2%E9%B1%BC* url-and-header reject
 # 搜索页多余推荐列表
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.item\.search\.activate\/2\.0 url reject-dict
@@ -377,6 +377,10 @@ https?:\/\/m\.360buyimg\.com\/mobilecms\/jfs\/t1\/\d+\/\d+\/\d+\/\d+\/[a-zA-Z0-9
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.circle\.myself\.banner\/1\.0 url jsonjq-response-body .data.bannerList = []
 # 主页关注页面圈子常访问
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.circle\.visited\/1\.0 url jsonjq-response-body .data.visitedCircleList = []
+# 搜索框页面榜单
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.activate\.tablist url jsonjq-response-body .data.tabList = []
+# 首页顶部图标菜单
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.widget\.refresh\.get url jsonjq-response-body .data.homeTopList = []
 # 商品信息流广告
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh\/ url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/xianyu.js
 # 定位地区页面的信息流广告
