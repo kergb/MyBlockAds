@@ -121,8 +121,8 @@ host, huodong.weibo.cn, reject
 ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adv url reject-dict
 
 #解锁倍速/画质
-^https?:\/\/pan\.baidu\.com\/api\/getsyscfg\? url script-response-body https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/refs/heads/main/JavaScript/baiduPan.js
-^https?:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user url script-response-body https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/refs/heads/main/JavaScript/baiduPan.js
+^https?:\/\/pan\.baidu\.com\/api\/getsyscfg\? url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/baiduwangpan.js
+^https?:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/baiduwangpan.js
 
 #百度贴吧净化//tiebac.baidu.com, tieba.baidu.com
 #首页搜索|进吧搜索@ddgksf2013
