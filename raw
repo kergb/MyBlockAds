@@ -121,8 +121,8 @@ host, huodong.weibo.cn, reject
 ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adv url reject-dict
 
 #解锁倍速/画质
-^https?:\/\/pan\.baidu\.com\/api\/getsyscfg\? url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/baiduwangpan.js
-^https?:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/baiduwangpan.js
+^https?:\/\/pan\.baidu\.com\/api\/getsyscfg\? url script-response-body https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/refs/heads/main/JavaScript/baiduPan.js
+^https?:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user url script-response-body https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/refs/heads/main/JavaScript/baiduPan.js
 
 #百度贴吧净化//tiebac.baidu.com, tieba.baidu.com
 #首页搜索|进吧搜索@ddgksf2013
@@ -146,19 +146,6 @@ host, huodong.weibo.cn, reject
 #京东//m.360buyimg.com
 https?:\/\/m\.360buyimg\.com\/mobilecms\/s1125x2436_jfs url reject-200
 https?:\/\/m\.360buyimg\.com\/mobilecms\/jfs\/t1\/\d+\/\d+\/\d+\/\d+\/[a-zA-Z0-9]+\/[a-zA-Z0-9]+\.jpg$ url reject-200
-
-#快手//az4-api.ksapisrv.com, az4-api-idc.ksapisrv.com, az2-api.ksapisrv.com, az2-api-idc.ksapisrv.com, apissl.gifshow.com, apissl.ksapisrv.com, az2-api-js.gifshow.com, az2-live.ksapisrv.com
-^https?:\/\/(apissl|az2-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/system\/startup\? url jsonjq-response-body 'delpaths([["reskinConfig"]])'
-^https?:\/\/(apissl|az2-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/system\/startup\? url jsonjq-response-body 'delpaths([["sidebarExSquareStyle","moreList"]])'
-^https?:\/\/(apissl|az2-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/system\/startup\? url jsonjq-response-body 'delpaths([["sidebarExSquareStyle","topList"]])'
-^https?:\/\/(apissl|az2-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/system\/startup\? url jsonjq-response-body '.sidebarExSquareStyle.commonlyUsedList |= map(select(.title == "设置" or .title == "历史记录" or .title == "草稿箱" or .title == "我的钱包" or .title == "小程序" or .title == "未成年人模式" or .title == "官方客服" or .title == "内容偏好" or .title == "离线模式" or .title == "稍后再看" or .title == "举报中心" or .title == "挂件"))'
-^https?:\/\/az2-live\.ksapisrv\.com\/rest\/n\/live\/feed\/square\/refresh\? url jsonjq-response-body 'delpaths([["data","banners"]])'
-^https?:\/\/az4-api(-idc)?\.ksapisrv\.com\/rest\/n\/feed\/selectionFast\? url jsonjq-response-body 'if (.feeds | type) == "array" then .feeds |= map(select(.ad | not)) else . end'
-^https?:\/\/az2-api-js\.gifshow\.com\/rest\/n\/user\/profile\/v2\? url jsonjq-response-body 'delpaths([["postRecommends"]])'
-#任务中心 - 挂件
-^https?:\/\/az2-api\.ksapisrv\.com\/rest\/n\/taskCenter\/task\/report\? url reject-dict
-#广告下发
-^https?:\/\/az2-api\.ksapisrv\.com\/rest\/n\/ad\/ url reject-dict
 
 #酷狗音乐//gateway.kugou.com, fx.service.kugou.com, hwstore.kugou.com, ep.kugou.com, gatewayretry.kugou.com, gzacshow.kugou.com, m1fxgroup.kugou.com
 ^https?:\/\/gateway(retry)?\.kugou\.com\/ocean\/v\d\/tab\/list_v\d url jsonjq-response-body 'walk(if type == "object" and has("name") and (.name | IN(["AI帮唱","长相思2","K歌","小说","游戏"])) then empty else . end)'
@@ -198,7 +185,7 @@ https?:\/\/m\.360buyimg\.com\/mobilecms\/jfs\/t1\/\d+\/\d+\/\d+\/\d+\/[a-zA-Z0-9
 ^https?:\/\/img\.meituan\.net\/bizad url reject
 ^https?:\/\/p\d\.meituan\.net\/movie\/.+?\.jpg\?may_covertWebp url reject-img
 ^https?:\/\/p\d\.meituan\.net\/travelcube\/(?!1d4a663|52e9bfc|29a6227|412c4ac|6ee35c4|13bf0bf|ab8692e|6858b1d).+@100w_100h url reject-img
-^https?:\/\/p\d\.meituan\.net\/linglong\/ url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/meituan.js
+^https?:\/\/p\d\.meituan\.net\/linglong\/ url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/meituan.js
 ^https?:\/\/p\d\.meituan\.net\/(\d+\.\d+\.\d+\/)?wmbanner\/(?!fb51b9d|4e9d3c4).+\.gif url reject-img
 ^https?:\/\/p\d\.meituan\.net\/(display|mmc)\/ url reject
 ^https?:\/\/apimobile\.meituan\.com\/group\/v\d\/recommend\/unity\/recommends url reject
@@ -449,5 +436,5 @@ user-agent, %E9%97%B2%E9%B1%BC*, reject
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getmyprofilev3 url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhuanzhuan/zhuanzhuan.js
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/getchoicegoodsinfos url response-body infoData response-body fmz200
 
-hostname =m.360buyimg.com, -i.vip.iqiyi.com, *.iqiyi.com, list-app-m.i4.cn, pan.baidu.com, tiebac.baidu.com, tieba.baidu.com, www.baidu.com, fcvbjbcebos.baidu.com, cover.baidu.com, baichuan.baidu.com, api*.tuisong.baidu.com, mobads.baidu.com, issuecdn.baidupcs.com, sa*.tuisong.baidu.com, m.baidu.com, sofire.baidu.com, acs.m.taobao.com, az4-api.ksapisrv.com, az4-api-idc.ksapisrv.com, az2-api.ksapisrv.com, az2-api-idc.ksapisrv.com, apissl.gifshow.com, apissl.ksapisrv.com, az2-api-js.gifshow.com, az2-live.ksapisrv.com, gateway.kugou.com, fx.service.kugou.com, hwstore.kugou.com, ep.kugou.com, gatewayretry.kugou.com, gzacshow.kugou.com, m1fxgroup.kugou.com, apimobile.meituan.com, img.meituan.net, p*.meituan.net, s3plus.meituan.net, flowplus.meituan.net, portal-portm.meituan.com, sqt.meituan.com, wmapi.meituan.com, p*.meituan.net, s3plus.meituan.net, midc.cdn-static.abchina.com.cn, enjoy.cdn-static.abchina.com, midc.cdn-static.abchina.com.cn, enjoy.cdn-static.abchina.com, firefly.abchina.com.cn, *.ly.com, *.17usoft.com, *.17u.cn, mobilehotelapi.elong.com, quic-tcmapi.elong.com, acs.m.taobao.com,heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, cds.wifi188.com, *.weibo.cn,  *.weibo.com,  weibo.com conf-m-ssl.xunlei.com, api-shoulei-ssl.xunlei.com, acs.m.goofish.com, g-acs.m.goofish.com, oneapp-api.faw-vw.com, an.baidu.com, mbd.baidu.com, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, mars.ccc.cmbchina.com, marscc.bcs.cmbchina.com, intellicc.b*s.cmbchina.com, *mbasecc.b*s.cmbchina.com, app.zhuanzhuan.com
+hostname =m.360buyimg.com, -i.vip.iqiyi.com, *.iqiyi.com, list-app-m.i4.cn, pan.baidu.com, tiebac.baidu.com, tieba.baidu.com, www.baidu.com, fcvbjbcebos.baidu.com, cover.baidu.com, baichuan.baidu.com, api*.tuisong.baidu.com, mobads.baidu.com, issuecdn.baidupcs.com, sa*.tuisong.baidu.com, m.baidu.com, sofire.baidu.com, acs.m.taobao.com,  gateway.kugou.com, fx.service.kugou.com, hwstore.kugou.com, ep.kugou.com, gatewayretry.kugou.com, gzacshow.kugou.com, m1fxgroup.kugou.com, apimobile.meituan.com, img.meituan.net, p*.meituan.net, s3plus.meituan.net, flowplus.meituan.net, portal-portm.meituan.com, sqt.meituan.com, wmapi.meituan.com, p*.meituan.net, s3plus.meituan.net, midc.cdn-static.abchina.com.cn, enjoy.cdn-static.abchina.com, midc.cdn-static.abchina.com.cn, enjoy.cdn-static.abchina.com, firefly.abchina.com.cn, *.ly.com, *.17usoft.com, *.17u.cn, mobilehotelapi.elong.com, quic-tcmapi.elong.com, acs.m.taobao.com,heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, cds.wifi188.com, *.weibo.cn,  *.weibo.com,  weibo.com conf-m-ssl.xunlei.com, api-shoulei-ssl.xunlei.com, acs.m.goofish.com, g-acs.m.goofish.com, oneapp-api.faw-vw.com, an.baidu.com, mbd.baidu.com, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, mars.ccc.cmbchina.com, marscc.bcs.cmbchina.com, intellicc.b*s.cmbchina.com, *mbasecc.b*s.cmbchina.com, app.zhuanzhuan.com
 
