@@ -75,8 +75,8 @@ host-suffix,aishuttler.com,reject
 host,sdk.e.qq.com,reject
 host,qzs.gdtimg.com,reject
 host-suffix,gdt.qq.com,reject
-host-rewyword,pglstatp-toutiao,reject
-host-kewyword,pangolin-sdk-toutiao,reject
+host-keyword, pangolin-sdk-toutiao, reject
+host-keyword, pangolin-sdk-toutiao, reject
 host,mobads.baidu.com,reject
 
 
