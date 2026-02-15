@@ -67,17 +67,6 @@ ip-cidr, 95.161.76.100/31, reject
 #微博
 host-suffix, biz.weibo.com, reject
 host, huodong.weibo.cn, reject
-# 万能钥匙
-host-suffix, ads.umeng.com, reject
-host-suffix, aishuttler.com, reject
-host-suffix, wkanx.com, reject
-host-suffix,aishuttler.com,reject
-host,sdk.e.qq.com,reject
-host,qzs.gdtimg.com,reject
-host-suffix,gdt.qq.com,reject
-host-keyword, pangolin-sdk-toutiao, reject
-host-keyword, pangolin-sdk-toutiao, reject
-host,mobads.baidu.com,reject
 
 
 #url
