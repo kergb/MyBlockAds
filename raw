@@ -89,7 +89,7 @@ host,mobads.baidu.com,reject
 #精选页面广告占位符
 #^https?:\/\/(search|list)-app-m\.i4\.cn\/(getHotSearchList|getAppList)\.xhtml url jsonjq-response-body 'del(.adli, .list, .ad, .banner)'
 
-^http:\/\/d\.image\.i4\.cn\/adInfo\/image\/original url reject
+^http:\/\/d\.image\.i4\.cn\/adInfo\/image\/original url reject-dict
 
 #爱奇艺//hostname = -i.vip.iqiyi.com, *.iqiyi.com
 # 播放页开通会员提示
