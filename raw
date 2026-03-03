@@ -64,6 +64,13 @@ host, msmp.abchina.com.cn, reject
 host, media-sxty-fy-home01.sx3oss.ctyunxs.cn, reject
 #Telegram
 ip-cidr, 95.161.76.100/31, reject
+#淘宝
+host, adashx.m.taobao.com, reject
+host, ossgw.alicdn.com, reject
+host, ems.youku.com, reject
+host, hudong.alicdn.com, reject
+host, h-adashx.ut.taobao.com, reject
+host, ut.taobao.com, reject
 #微博
 host-suffix, biz.weibo.com, reject
 host, huodong.weibo.cn, reject
@@ -258,6 +265,9 @@ https?:\/\/m\.360buyimg\.com\/mobilecms\/jfs\/t1\/\d+\/\d+\/\d+\/\d+\/[a-zA-Z0-9
 ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.wireless\.home\.splash\.awesome\.get url jsonjq-response-body '{"data":{"containers":{"splash_home_base":{"base":{"sections":[{"bizData":{"taobao-splash":{"data":[{"waitTime":"0","times":"0","hotStart":"false","haveVoice":"false","hideTBLogo":"false","enable4G":"false","coldStart":"false","startTime":"3818332800000","endTime":"3818419199000","gmtStart":"2090-12-31 00:00:00","gmtEnd":"2090-12-31 23:59:59","gmtStartMs":"3818332800000","gmtEndMs":"3818419199000","imgUrl":"","videoUrl":""}]}}}]}}}}}'
 #淘宝 - 开屏活动弹窗接口（poplayer）
 ^https:\/\/poplayer\.template\.alibaba\.com\/\w+\.json url jsonjq-response-body '{"res":{"images":[],"videos":[]},"mainRes":{"images":[]},"enable":false}'
+# 开屏广告
+^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/[A-Za-z0-9_!]+-\d+-tps-\d+-\d+\.jpg_\d+x\d*q\d+\.jpg_\.heic$ url reject-dict
+^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/\d*\/?[\w!]+-\d-(octopus|tps-1125-1602|tps-1080-1920|tps-1125-1950)\.(jp|pn)g_(1\d{3}|9\d{2})x(1\d{3}|9\d{2})q[59]0 url reject-dict
 
 #WiFi万能钥匙//cds.wifi188.com
 #首页弹窗广告
