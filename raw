@@ -11,6 +11,10 @@
 ^http:\/\/d\.image\.i4\.cn\/adInfo\/image\/original url reject-dict
 
 #爱奇艺//hostname = -i.vip.iqiyi.com, *.iqiyi.com
+host-suffix, cupid.iqiyi.com, direct
+ip-cidr, 103.44.59.54/32, reject, no-resolve
+ip-cidr, 111.63.147.158/32, reject, no-resolve
+ip-cidr, 116.211.198.237/32, reject, no-resolve
 # 播放页开通会员提示
 ^https?:\/\/act\.vip\.iqiyi\.com\/interact\/api\/v2\/show\? url reject-dict
 # 首页信息流广告
