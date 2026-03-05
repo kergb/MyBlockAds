@@ -12,9 +12,6 @@
 
 #爱奇艺//hostname = -i.vip.iqiyi.com, *.iqiyi.com
 host-suffix, cupid.iqiyi.com, direct
-ip-cidr, 103.44.59.54/32, reject, no-resolve
-ip-cidr, 111.63.147.158/32, reject, no-resolve
-ip-cidr, 116.211.198.237/32, reject, no-resolve
 # 播放页开通会员提示
 ^https?:\/\/act\.vip\.iqiyi\.com\/interact\/api\/v2\/show\? url reject-dict
 # 首页信息流广告
@@ -271,8 +268,6 @@ https?:\/\/m\.360buyimg\.com\/mobilecms\/jfs\/t1\/\d+\/\d+\/\d+\/\d+\/[a-zA-Z0-9
 
 #闲鱼hostname = acs.m.goofish.com, g-acs.m.goofish.com
 #!desc = 去除首页、个人页、搜索页、搜索结果页、关注页、消息页及商品详情页的推广和广告
-# 分流添加广告下发
-user-agent, %E9%97%B2%E9%B1%BC*, reject
 # 拦截广告下发
 ^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch %E9%97%B2%E9%B1%BC* url-and-header reject
 # 搜索页多余推荐列表
