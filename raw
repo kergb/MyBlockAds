@@ -154,34 +154,12 @@ https?:\/\/m\.360buyimg\.com\/mobilecms\/jfs\/t1\/\d+\/\d+\/\d+\/\d+\/[a-zA-Z0-9
 ^https?:\/\/wx\.17u\.cn\/crapi\/query\/ad url reject-dict
 # 酒店界面广告
 ^https?:\/\/mobilehotelapi\.elong\.com\/appHotel\/adx\/advert\/getAdvert url reject-dict
-
-#淘宝//acs.m.taobao.com,heic.alicdn.com,guide-acs.m.taobao.com,poplayer.template.alibaba.com
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.(allresource|predict) url reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv url reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise url reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimusic\.common\.mobileservice\.startinit url reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.etao\.noah\.query\/.+tao_splash url reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.queryadvertise url reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.o2o\.ad\.gateway\.get url reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.taobao\.idle\.home\.welcome url reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources url reject-dict
-#开屏广告
-^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/\d*\/?[\w!]+-\d-(octopus|tps-1125-1602|tps-1080-1920|tps-1125-1950)\.(jp|pn)g_(1\d{3}|9\d{2})x(1\d{3}|9\d{2})q[59]0 url reject-dict
-^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(volvo\.secondfloor\.getconfig|wireless\.home\.newface\.awesome\.get) url reject-dict
-
-#^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get) url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/taobao.js
-#^https:\/\/poplayer\.template\.alibaba\.com\/\w+\.json url script-response-body https://raw.githubusercontent.com/kergb/QuantumultX/refs/heads/main/taobao.js
-
-#淘宝 - 开屏视频广告接口（video.query）
-^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.cloudvideo\.video\.query url jsonjq-response-body '{"data":{"duration":"0","resources":[],"caches":[],"respTimeInMs":"3818332800000"}}'
-#淘宝 - 开屏图片广告接口（splash.awesome.get）
-^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.wireless\.home\.splash\.awesome\.get url jsonjq-response-body '{"data":{"containers":{"splash_home_base":{"base":{"sections":[{"bizData":{"taobao-splash":{"data":[{"waitTime":"0","times":"0","hotStart":"false","haveVoice":"false","hideTBLogo":"false","enable4G":"false","coldStart":"false","startTime":"3818332800000","endTime":"3818419199000","gmtStart":"2090-12-31 00:00:00","gmtEnd":"2090-12-31 23:59:59","gmtStartMs":"3818332800000","gmtEndMs":"3818419199000","imgUrl":"","videoUrl":""}]}}}]}}}}}'
-#淘宝 - 开屏活动弹窗接口（poplayer）
-^https:\/\/poplayer\.template\.alibaba\.com\/\w+\.json url jsonjq-response-body '{"res":{"images":[],"videos":[]},"mainRes":{"images":[]},"enable":false}'
+#淘宝//heic.alicdn.com
+^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch %E6%B7%98%E5%AE%9D* url-and-header reject
 # 开屏广告
+^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/[A-Za-z0-9_!]+-\d+-tps-\d+-\d+\.png_\d+x\d*q\d+\.jpg_\.heic$ url reject-dict
 ^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/[A-Za-z0-9_!]+-\d+-tps-\d+-\d+\.jpg_\d+x\d*q\d+\.jpg_\.heic$ url reject-dict
 ^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/\d*\/?[\w!]+-\d-(octopus|tps-1125-1602|tps-1080-1920|tps-1125-1950)\.(jp|pn)g_(1\d{3}|9\d{2})x(1\d{3}|9\d{2})q[59]0 url reject-dict
-
 #WiFi万能钥匙//cds.wifi188.com
 #首页弹窗广告
 ^https?:\/\/cds\.wifi188\.com\/feeds\.sec url reject-dict
