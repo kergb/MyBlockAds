@@ -166,7 +166,8 @@ https?:\/\/m\.360buyimg\.com\/mobilecms\/jfs\/t1\/\d+\/\d+\/\d+\/\d+\/[a-zA-Z0-9
 #WiFi万能钥匙//cds.wifi188.com
 #首页弹窗广告
 ^https?:\/\/cds\.wifi188\.com\/feeds\.sec url reject-dict
-#万能签更新提示
+
+#万能签更新提示//sign.wnqapp.com
 ^https?:\/\/sign\.wnqapp\.com\/url\/message\.php.* url reject
 
 #微博
