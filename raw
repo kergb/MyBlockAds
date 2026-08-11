@@ -110,6 +110,27 @@ https?:\/\/m\.360buyimg\.com\/mobilecms\/jfs\/t1\/\d+\/\d+\/\d+\/\d+\/[a-zA-Z0-9
 ^https?:\/\/hwstore\.kugou\.com\/v\d\/get_store_data url reject-dict
 #唱片店 - 文字广告
 ^https?:\/\/ep\.kugou\.com\/v\d\/album_shop\/get_entrance_info url reject-dict
+#快手//az*-api.ksapisrv.com, az4-api-idc.ksapisrv.com, az*-api-idc.ksapisrv.com, apissl.gifshow.com, apissl.ksapisrv.com, az*-api-js.gifshow.com, az*-live.ksapisrv.com
+#拦截附近/同城组件信息
+https:\/\/(apissl|az\d-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/n\/nearby\/widget\/info\? url reject-dict
+#拦截任务中心任务上报
+^https:\/\/(apissl|az\d-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/n\/taskCenter\/task\/report\? url reject-dict
+#拦截广告接口
+^https:\/\/(apissl|az\d-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/n\/ad\/ url reject-dict
+# 过滤推荐 Feed 中的广告内容
+^https:\/\/(apissl|az\d-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/n\/feed\/(selection|selectionFast)\? url jsonjq-response-body 'if (.feeds | type) == "array" then .feeds |= map(select(.ad | not)) else . end'
+#删除直播广场 Banner
+^https:\/\/(apissl|az\d-live|az\d-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/n\/live\/feed\/square\/refresh\? url jsonjq-response-body 'del(.data.banners)'
+# 拦截直播卡片信息
+^https:\/\/(apissl|az\d-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/n\/live\/feed\/info\/simplelive\/card\? url reject-dict
+#删除个人资料页的推荐内容
+^https:\/\/(apissl|az\d-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/n\/user\/profile\/v2\? url jsonjq-response-body 'del(.postRecommends)'
+#删除 IM 推荐会话
+^https:\/\/(apissl|az\d-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/im\/wd\/top\/navigation\/getRecommendedSession\? url jsonjq-response-body 'del(.data.operationRecommendationList)'
+#删除部分推荐/扩展列表
+^https:\/\/(apissl|az\d-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/system\/startup\? url jsonjq-response-body 'del(.reskinConfig, .sidebarExSquareStyle.moreList, .sidebarExSquareStyle.topList)'
+#启动配置，只保留指定的常用功能
+^https:\/\/(apissl|az\d-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/system\/startup\? url jsonjq-response-body '.sidebarExSquareStyle.commonlyUsedList |= map(select(.title == "设置" or .title == "历史记录" or .title == "草稿箱" or .title == "我的钱包" or .title == "小程序" or .title == "未成年人模式" or .title == "官方客服" or .title == "内容偏好" or .title == "离线模式" or .title == "稍后再看" or .title == "举报中心" or .title == "挂件"))'
 
 #美团//apimobile.meituan.com, img.meituan.net, p*.meituan.net, s3plus.meituan.net, flowplus.meituan.net, portal-portm.meituan.com, sqt.meituan.com
 ^https?:\/\/apimobile\.meituan\.com\/appupdate url reject
@@ -249,8 +270,7 @@ https?:\/\/m\.360buyimg\.com\/mobilecms\/jfs\/t1\/\d+\/\d+\/\d+\/\d+\/[a-zA-Z0-9
 
 #迅雷//conf-m-ssl.xunlei.com, api-shoulei-ssl.xunlei.com
 ^https:\/\/conf-m-ssl\.xunlei\.com\/external\/ url jsonjq-response-body 'del(.values.me_config.entrance_list_vertical_enable, .values.me_config.common_service_list, .values.me_config.banner_service_list)'
-#精简我的页面
-^https:\/\/api-shoulei-ssl\.xunlei\.com\/flowhub\/v1\/slots:batchGet$ url jsonjq-response-body '.slots |= map(select(.id == "xl_ios_mytab_vipicon" or (.native.assets.title.text.value? | IN("") )))'
+^https:\/\/api-shoulei-ssl\.xunlei\.com\/flowhub\/v1\/slots:batchGet$ url jsonjq-response-body '.slots |= map(select(.id == "xl_ios_mytab_vipicon" or (.native.assets.title.text.value? and (.native.assets.title.text.value | . == "清理助手" or . == "云盘容量" or . == "远程设备"))))'
 
 #闲鱼hostname = acs.m.goofish.com, g-acs.m.goofish.com
 #!desc = 去除首页、个人页、搜索页、搜索结果页、关注页、消息页及商品详情页的推广和广告
@@ -366,5 +386,5 @@ https?:\/\/m\.360buyimg\.com\/mobilecms\/jfs\/t1\/\d+\/\d+\/\d+\/\d+\/[a-zA-Z0-9
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getmyprofilev3 url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhuanzhuan/zhuanzhuan.js
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/getchoicegoodsinfos url response-body infoData response-body fmz200
 
-hostname = signall-api.nuosike.com, d-image.i4.cn, m.360buyimg.com, -i.vip.iqiyi.com, *.iqiyi.com, list-app-m.i4.cn, pan.baidu.com, tiebac.baidu.com, tieba.baidu.com, www.baidu.com, fcvbjbcebos.baidu.com, cover.baidu.com, baichuan.baidu.com, api*.tuisong.baidu.com, mobads.baidu.com, issuecdn.baidupcs.com, sa*.tuisong.baidu.com, m.baidu.com, sofire.baidu.com, acs.m.taobao.com,  gateway.kugou.com, fx.service.kugou.com, hwstore.kugou.com, ep.kugou.com, gatewayretry.kugou.com, gzacshow.kugou.com, m1fxgroup.kugou.com, apimobile.meituan.com, img.meituan.net, p*.meituan.net, s3plus.meituan.net, flowplus.meituan.net, portal-portm.meituan.com, sqt.meituan.com, wmapi.meituan.com, p*.meituan.net, s3plus.meituan.net, midc.cdn-static.abchina.com.cn, enjoy.cdn-static.abchina.com, midc.cdn-static.abchina.com.cn, enjoy.cdn-static.abchina.com, firefly.abchina.com.cn, *.ly.com, *.17usoft.com, *.17u.cn, mobilehotelapi.elong.com, quic-tcmapi.elong.com, acs.m.taobao.com,heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, cds.wifi188.com, *.weibo.cn,  *.weibo.com,  weibo.com conf-m-ssl.xunlei.com, api-shoulei-ssl.xunlei.com, acs.m.goofish.com, g-acs.m.goofish.com, oneapp-api.faw-vw.com, an.baidu.com, mbd.baidu.com, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, mars.ccc.cmbchina.com, marscc.bcs.cmbchina.com, intellicc.b*s.cmbchina.com, *mbasecc.b*s.cmbchina.com, app.zhuanzhuan.com, sign.wnqapp.com
+hostname = az*-api.ksapisrv.com, az4-api-idc.ksapisrv.com, az*-api-idc.ksapisrv.com, apissl.gifshow.com, apissl.ksapisrv.com, az*-api-js.gifshow.com, az*-live.ksapisrv.com, signall-api.nuosike.com, d-image.i4.cn, m.360buyimg.com, -i.vip.iqiyi.com, *.iqiyi.com, list-app-m.i4.cn, pan.baidu.com, tiebac.baidu.com, tieba.baidu.com, www.baidu.com, fcvbjbcebos.baidu.com, cover.baidu.com, baichuan.baidu.com, api*.tuisong.baidu.com, mobads.baidu.com, issuecdn.baidupcs.com, sa*.tuisong.baidu.com, m.baidu.com, sofire.baidu.com, acs.m.taobao.com,  gateway.kugou.com, fx.service.kugou.com, hwstore.kugou.com, ep.kugou.com, gatewayretry.kugou.com, gzacshow.kugou.com, m1fxgroup.kugou.com, apimobile.meituan.com, img.meituan.net, p*.meituan.net, s3plus.meituan.net, flowplus.meituan.net, portal-portm.meituan.com, sqt.meituan.com, wmapi.meituan.com, p*.meituan.net, s3plus.meituan.net, midc.cdn-static.abchina.com.cn, enjoy.cdn-static.abchina.com, midc.cdn-static.abchina.com.cn, enjoy.cdn-static.abchina.com, firefly.abchina.com.cn, *.ly.com, *.17usoft.com, *.17u.cn, mobilehotelapi.elong.com, quic-tcmapi.elong.com, acs.m.taobao.com,heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, cds.wifi188.com, *.weibo.cn,  *.weibo.com,  weibo.com conf-m-ssl.xunlei.com, api-shoulei-ssl.xunlei.com, acs.m.goofish.com, g-acs.m.goofish.com, oneapp-api.faw-vw.com, an.baidu.com, mbd.baidu.com, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, mars.ccc.cmbchina.com, marscc.bcs.cmbchina.com, intellicc.b*s.cmbchina.com, *mbasecc.b*s.cmbchina.com, app.zhuanzhuan.com, sign.wnqapp.com
 
